@@ -15,7 +15,7 @@ Prepare the AWS account, an admin IAM user (never use root), the AWS CLI, and th
 1. Sign in to the [AWS Console](https://console.aws.amazon.com/), or register at [aws.amazon.com](https://aws.amazon.com/) (credit card required; this workshop stays mostly within the free tier).
 2. In the top-right corner, select **Asia Pacific (Singapore) `ap-southeast-1`** — all later steps (except WAF/ACM for CloudFront) happen in this region.
 
-![region](/static/images/5-Workshop/5.2-Prerequisite/01-region.png)
+![region](/images/5-Workshop/5.2-Prerequisite/01-region.png)
 
 ### 2.2. Create an admin IAM user (do not use root)
 
@@ -24,15 +24,15 @@ First security principle: **root is only used to create an IAM user, then locked
 1. Console → **IAM** → **Users** → **Create user**.
 2. User name: `phim-admin` → check **Provide user access to the AWS Management Console** → **I want to create an IAM user** → set a password.
 
-![create iam user](/static/images/5-Workshop/5.2-Prerequisite/02-create-iam-user.png)
+![create iam user](/images/5-Workshop/5.2-Prerequisite/02-create-iam-user.png)
 
 3. Permissions: **Attach policies directly** → check **`AdministratorAccess`** → **Next** → **Create user**.
 
-![attach policy](/static/images/5-Workshop/5.2-Prerequisite/03-attach-policy.png)
+![attach policy](/images/5-Workshop/5.2-Prerequisite/03-attach-policy.png)
 
 4. Enable MFA: IAM → Users → `phim-admin` → **Security credentials** → **Assign MFA device** → Authenticator app → scan the QR code.
 
-![assign mfa](/static/images/5-Workshop/5.2-Prerequisite/04-assign-mfa.png)
+![assign mfa](/images/5-Workshop/5.2-Prerequisite/04-assign-mfa.png)
 
 5. Sign out of root and sign back in as `phim-admin`. All later steps use this user.
 
@@ -45,11 +45,11 @@ aws --version
 # aws-cli/2.x.x Python/3.x.x Windows/10 exe/AMD64
 ```
 
-![cli version](/static/images/5-Workshop/5.2-Prerequisite/05-cli-version.png)
+![cli version](/images/5-Workshop/5.2-Prerequisite/05-cli-version.png)
 
 2. Create an access key: IAM → Users → `phim-admin` → **Security credentials** → **Create access key** → use case **Command Line Interface (CLI)** → **download the .csv** (shown only once).
 
-![access key](/static/images/5-Workshop/5.2-Prerequisite/06-access-key.png)
+![access key](/images/5-Workshop/5.2-Prerequisite/06-access-key.png)
 
 3. Configure the CLI:
 
@@ -61,7 +61,7 @@ aws configure
 # Default output format: json
 ```
 
-![aws configure](/static/images/5-Workshop/5.2-Prerequisite/07-aws-configure.png)
+![aws configure](/images/5-Workshop/5.2-Prerequisite/07-aws-configure.png)
 
 4. Verify:
 
@@ -71,7 +71,7 @@ aws sts get-caller-identity
 
 It must return your `Account` (12 digits — **note it down**; later steps call it `<ACCOUNT_ID>`) and an `Arn` containing `user/phim-admin`.
 
-![sts get-caller-identity](/static/images/5-Workshop/5.2-Prerequisite/08-sts-get-caller-identity.png)
+![sts get-caller-identity](/images/5-Workshop/5.2-Prerequisite/08-sts-get-caller-identity.png)
 
 ### 2.4. Source code & external services
 

@@ -19,32 +19,32 @@ Dùng domain mặc định `*.cloudfront.net` thì **không cần tự tạo cer
 1. Console → **CloudFront** → **Create distribution**.
 2. **Origin 1 — Amplify (mặc định):** **Origin domain:** `<branch>.<app-id>.amplifyapp.com` (gõ tay), **Protocol:** HTTPS only.
 
-![distribution options](/static/images/5-Workshop/5.10-CloudFront-WAF/01-distribution-options.png)
-![origin amplify](/static/images/5-Workshop/5.10-CloudFront-WAF/02-origin-amplify.png)
+![distribution options](/images/5-Workshop/5.10-CloudFront-WAF/01-distribution-options.png)
+![origin amplify](/images/5-Workshop/5.10-CloudFront-WAF/02-origin-amplify.png)
 
 3. **Default behavior:** Viewer protocol policy: **Redirect HTTP to HTTPS**; Allowed HTTP methods: **GET, HEAD, OPTIONS, PUT, POST, PATCH, DELETE**; Cache policy: **UseOriginCacheControlHeaders** (tôn trọng cache header của Next.js); Origin request policy: **AllViewerExceptHostHeader**.
 
-![default behavior settings](/static/images/5-Workshop/5.10-CloudFront-WAF/03-default-behavior-settings.png)
-![cache settings](/static/images/5-Workshop/5.10-CloudFront-WAF/04-cache-settings.png)
+![default behavior settings](/images/5-Workshop/5.10-CloudFront-WAF/03-default-behavior-settings.png)
+![cache settings](/images/5-Workshop/5.10-CloudFront-WAF/04-cache-settings.png)
 
 4. → **Create distribution** (WAF chọn "Do not enable" tạm — bật ở 10.4). Chờ trạng thái **Deployed** (~5 phút).
 5. Thêm **Origin 2 — API Gateway:** tab **Origins** → **Create origin**: **Origin domain:** `<api-id>.execute-api.ap-southeast-1.amazonaws.com` · Protocol: HTTPS only.
 
-![origin api gateway](/static/images/5-Workshop/5.10-CloudFront-WAF/05-origin-apigateway.png)
+![origin api gateway](/images/5-Workshop/5.10-CloudFront-WAF/05-origin-apigateway.png)
 
 6. Tab **Behaviors** → **Create behavior**: **Path pattern:** `api/*` · Origin: origin API Gateway; Viewer protocol policy: Redirect HTTP to HTTPS · Allowed methods: **tất cả** (GET…DELETE); **Cache policy: CachingDisabled** ⬅ API không được cache mặc định; **Origin request policy: AllViewerExceptHostHeader** ⬅ chuyển tiếp header/query nhưng bỏ Host (bắt buộc với API GW).
 
-![behavior api](/static/images/5-Workshop/5.10-CloudFront-WAF/06-behavior-api.png)
-![kiểm tra behaviors](/static/images/5-Workshop/5.10-CloudFront-WAF/07-check-behaviors.png)
+![behavior api](/images/5-Workshop/5.10-CloudFront-WAF/06-behavior-api.png)
+![kiểm tra behaviors](/images/5-Workshop/5.10-CloudFront-WAF/07-check-behaviors.png)
 
 7. Thêm **Origin 3 — S3 avatar:** tab Origins → Create origin: **Origin domain:** chọn bucket `phim-avatars-<ACCOUNT_ID>.s3.ap-southeast-1.amazonaws.com` từ dropdown → **Origin access:** **Origin access control settings (OAC)** → **Create new OAC** (giữ mặc định, Sign requests) → chọn OAC vừa tạo.
 
-![origin s3 avatar](/static/images/5-Workshop/5.10-CloudFront-WAF/08-origin-s3-avatar.png)
-![origin access control](/static/images/5-Workshop/5.10-CloudFront-WAF/09-origin-access-control.png)
+![origin s3 avatar](/images/5-Workshop/5.10-CloudFront-WAF/08-origin-s3-avatar.png)
+![origin access control](/images/5-Workshop/5.10-CloudFront-WAF/09-origin-access-control.png)
 
 Console hiện cảnh báo vàng "You must update the S3 bucket policy" → bấm **Copy policy** → mở S3 → bucket → **Permissions → Bucket policy → Edit** → dán → Save.
 
-![edit bucket policy](/static/images/5-Workshop/5.10-CloudFront-WAF/10-edit-bucket-policy.png)
+![edit bucket policy](/images/5-Workshop/5.10-CloudFront-WAF/10-edit-bucket-policy.png)
 
 {{% notice note %}}
 Bucket policy vừa dán là minh chứng "bucket private, chỉ CloudFront distribution này được đọc".
@@ -52,7 +52,7 @@ Bucket policy vừa dán là minh chứng "bucket private, chỉ CloudFront dist
 
 8. Tab Behaviors → Create behavior: **Path pattern `avatars/*`** → origin S3 → cache policy **CachingOptimized** → Create.
 
-![behavior avatars](/static/images/5-Workshop/5.10-CloudFront-WAF/11-behavior-avatars.png)
+![behavior avatars](/images/5-Workshop/5.10-CloudFront-WAF/11-behavior-avatars.png)
 
 Tab Behaviors giờ có 3 dòng: `api/*` → API GW, `avatars/*` → S3, `Default (*)` → Amplify.
 
@@ -66,7 +66,7 @@ Lambda `phim-backend` → **Configuration → Environment variables → Edit** �
 
 → Save. Từ giờ URL avatar do backend trả về có dạng `https://<dist-id>.cloudfront.net/avatars/...` — đi qua CDN, bucket vẫn khóa.
 
-![cập nhật avatar base url](/static/images/5-Workshop/5.10-CloudFront-WAF/12-update-avatar-base-url.png)
+![cập nhật avatar base url](/images/5-Workshop/5.10-CloudFront-WAF/12-update-avatar-base-url.png)
 
 ### 10.4. Gắn WAF Web ACL
 

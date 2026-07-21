@@ -15,15 +15,15 @@ Create the `phim-lambda-role` IAM role for both Lambda functions (backend + cron
 1. Console → **IAM** → **Roles** → **Create role**.
 2. **Trusted entity type:** AWS service · **Use case:** **Lambda** → **Next**.
 
-![select trusted entity](/static/images/5-Workshop/5.6-IAM-Role/01-select-trusted-entity.png)
+![select trusted entity](/images/5-Workshop/5.6-IAM-Role/01-select-trusted-entity.png)
 
 3. **Add permissions:** check **`AWSLambdaBasicExecutionRole`** (CloudWatch Logs) → **Next**.
 
-![add permissions](/static/images/5-Workshop/5.6-IAM-Role/02-add-permissions.png)
+![add permissions](/images/5-Workshop/5.6-IAM-Role/02-add-permissions.png)
 
 4. **Role name:** `phim-lambda-role` → **Create role**.
 
-![name review create](/static/images/5-Workshop/5.6-IAM-Role/03-name-review-create.png)
+![name review create](/images/5-Workshop/5.6-IAM-Role/03-name-review-create.png)
 
 5. Open the role → **Permissions** → **Add permissions → Create inline policy** → **JSON** tab → paste (replace `<ACCOUNT_ID>`; adjust the bucket name if different):
 
@@ -47,11 +47,11 @@ Create the `phim-lambda-role` IAM role for both Lambda functions (backend + cron
 }
 ```
 
-![inline policy json](/static/images/5-Workshop/5.6-IAM-Role/04-inline-policy-json.png)
+![inline policy json](/images/5-Workshop/5.6-IAM-Role/04-inline-policy-json.png)
 
 6. **Policy name:** `phim-app-access` → **Create policy**.
 
-![role created](/static/images/5-Workshop/5.6-IAM-Role/05-role-created.png)
+![role created](/images/5-Workshop/5.6-IAM-Role/05-role-created.png)
 
 ### Least-privilege explanation (for the Security section of your report)
 

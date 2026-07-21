@@ -17,7 +17,7 @@ At AWS re:Invent 2025, AWS introduced a new feature designed to address this pro
 
 This feature allows a Lambda execution to automatically checkpoint its progress and pause (wait) without incurring compute costs, then automatically resume from the exact point it left off once a signal is received. The lifetime of an Execution can now extend up to 1 year, while the limit for each individual Invoke remains 15 minutes. When a function is paused or encounters an error, Lambda re-invokes it from the start, but replays the steps already completed based on results saved in the execution log, and only executes the remaining, unfinished portion of the work.
 
-![AWS Lambda Durable Functions](/static/images/3-BlogsPosted/3.1-Blog1/AWSLambdaDurableFunctions.drawio.png)
+![AWS Lambda Durable Functions](/images/3-BlogsPosted/3.1-Blog1/AWSLambdaDurableFunctions.drawio.png)
 
 [Link to the original post](https://www.facebook.com/groups/awsstudygroupfcj/permalink/2206391430125817/?rdid=ygFv7ftHySKZbKkF#)
 

@@ -27,7 +27,7 @@ This post shares a serverless image processing pipeline on AWS, built with the S
 
 The S3 → Lambda → DynamoDB/SNS → API Gateway pattern fits asynchronous file processing well and scales cleanly. The hard part is not remembering service names, but understanding exactly "who calls whom" to avoid infinite loops and unnecessary costs.
 
-![Serverless Image Processing Pipeline](/static/images/3-BlogsPosted/3.3-Blog3/ServerlessImagePipeline.jpg)
+![Serverless Image Processing Pipeline](/images/3-BlogsPosted/3.3-Blog3/ServerlessImagePipeline.jpg)
 
 References for readers who want to dive deeper:
 

@@ -19,32 +19,32 @@ With the default `*.cloudfront.net` domain **no certificate work is needed**. AC
 1. **CloudFront** → **Create distribution**.
 2. **Origin 1 — Amplify (default):** **origin domain** `<branch>.<app-id>.amplifyapp.com` (typed manually), **Protocol** HTTPS only.
 
-![distribution options](/static/images/5-Workshop/5.10-CloudFront-WAF/01-distribution-options.png)
-![origin amplify](/static/images/5-Workshop/5.10-CloudFront-WAF/02-origin-amplify.png)
+![distribution options](/images/5-Workshop/5.10-CloudFront-WAF/01-distribution-options.png)
+![origin amplify](/images/5-Workshop/5.10-CloudFront-WAF/02-origin-amplify.png)
 
 3. **Default behavior:** Viewer protocol policy **Redirect HTTP to HTTPS**; allowed methods **GET, HEAD, OPTIONS, PUT, POST, PATCH, DELETE**; cache policy **UseOriginCacheControlHeaders**; origin request policy **AllViewerExceptHostHeader**.
 
-![default behavior settings](/static/images/5-Workshop/5.10-CloudFront-WAF/03-default-behavior-settings.png)
-![cache settings](/static/images/5-Workshop/5.10-CloudFront-WAF/04-cache-settings.png)
+![default behavior settings](/images/5-Workshop/5.10-CloudFront-WAF/03-default-behavior-settings.png)
+![cache settings](/images/5-Workshop/5.10-CloudFront-WAF/04-cache-settings.png)
 
 4. → **Create distribution** (leave WAF off for now — attached in 10.4). Wait for status **Deployed** (~5 minutes).
 5. **Origin 2 — API Gateway:** tab **Origins** → **Create origin**: **origin domain** `<api-id>.execute-api.ap-southeast-1.amazonaws.com`, Protocol HTTPS only.
 
-![origin api gateway](/static/images/5-Workshop/5.10-CloudFront-WAF/05-origin-apigateway.png)
+![origin api gateway](/images/5-Workshop/5.10-CloudFront-WAF/05-origin-apigateway.png)
 
 6. Tab **Behaviors** → **Create behavior**: **Path pattern** `api/*` · origin = the API Gateway origin; viewer protocol Redirect HTTP to HTTPS; allowed methods **all** (GET…DELETE); **Cache policy: CachingDisabled** (APIs must not be cached by default); **Origin request policy: AllViewerExceptHostHeader** (forwards headers/query but drops Host — required for API GW).
 
-![behavior api](/static/images/5-Workshop/5.10-CloudFront-WAF/06-behavior-api.png)
-![check behaviors](/static/images/5-Workshop/5.10-CloudFront-WAF/07-check-behaviors.png)
+![behavior api](/images/5-Workshop/5.10-CloudFront-WAF/06-behavior-api.png)
+![check behaviors](/images/5-Workshop/5.10-CloudFront-WAF/07-check-behaviors.png)
 
 7. **Origin 3 — S3 avatars:** tab Origins → Create origin: pick bucket `phim-avatars-<ACCOUNT_ID>.s3.ap-southeast-1.amazonaws.com` from the dropdown → **Origin access control settings (OAC)** → **Create new OAC** (keep defaults, Sign requests) → select the new OAC.
 
-![origin s3 avatar](/static/images/5-Workshop/5.10-CloudFront-WAF/08-origin-s3-avatar.png)
-![origin access control](/static/images/5-Workshop/5.10-CloudFront-WAF/09-origin-access-control.png)
+![origin s3 avatar](/images/5-Workshop/5.10-CloudFront-WAF/08-origin-s3-avatar.png)
+![origin access control](/images/5-Workshop/5.10-CloudFront-WAF/09-origin-access-control.png)
 
 The console shows a yellow warning "You must update the S3 bucket policy" → click **Copy policy** → open S3 → the bucket → **Permissions → Bucket policy → Edit** → paste → Save.
 
-![edit bucket policy](/static/images/5-Workshop/5.10-CloudFront-WAF/10-edit-bucket-policy.png)
+![edit bucket policy](/images/5-Workshop/5.10-CloudFront-WAF/10-edit-bucket-policy.png)
 
 {{% notice note %}}
 This pasted bucket policy is proof that "the bucket is private; only this CloudFront distribution can read it."
@@ -52,7 +52,7 @@ This pasted bucket policy is proof that "the bucket is private; only this CloudF
 
 8. Tab Behaviors → Create behavior: **Path pattern `avatars/*`** → origin S3 → cache policy **CachingOptimized** → Create.
 
-![behavior avatars](/static/images/5-Workshop/5.10-CloudFront-WAF/11-behavior-avatars.png)
+![behavior avatars](/images/5-Workshop/5.10-CloudFront-WAF/11-behavior-avatars.png)
 
 The Behaviors tab should now list 3 rows: `api/*` → API GW, `avatars/*` → S3, `Default (*)` → Amplify.
 
@@ -66,7 +66,7 @@ The Behaviors tab should now list 3 rows: `api/*` → API GW, `avatars/*` → S3
 
 → Save. Avatar URLs returned by the backend now look like `https://<dist-id>.cloudfront.net/avatars/...` — served through the CDN while the bucket stays locked.
 
-![update avatar base url](/static/images/5-Workshop/5.10-CloudFront-WAF/12-update-avatar-base-url.png)
+![update avatar base url](/images/5-Workshop/5.10-CloudFront-WAF/12-update-avatar-base-url.png)
 
 ### 10.4. Attach the WAF Web ACL
 

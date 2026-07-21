@@ -21,7 +21,7 @@ Dưới đây là các hướng tối ưu chi phí AWS Lambda đáng chú ý, đ
 
 Kết quả chạy AWS Lambda Power Tuning dưới đây minh họa rõ điểm cân bằng giữa chi phí và thời gian thực thi: Best Cost tại 512MB, Best Time tại 2048MB, và Graviton luôn có chi phí thấp hơn x86:
 
-![AWS Lambda Power Tuning Results](/static/images/3-BlogsPosted/3.2-Blog2/LambdaPowerTuningResults.jpg)
+![AWS Lambda Power Tuning Results](/images/3-BlogsPosted/3.2-Blog2/LambdaPowerTuningResults.jpg)
 
 Bài viết chi tiết dành cho bạn đọc muốn tìm hiểu sâu hơn: [Reducing AWS Lambda Costs — Optimization Tips for Serverless Computing](https://www.cloudkeeper.com/insights/blog/reducing-aws-lambda-costs-optimization-tips-serverless-computing#toc-using-aws-graviton2)
 

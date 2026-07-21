@@ -31,7 +31,7 @@ Nền tảng tự động scale theo nhu cầu với chi phí chỉ \~$18–20/t
 ### 3. Kiến trúc giải pháp
 Request từ người dùng đi qua CloudFront (WAF Web ACL gắn tại edge) đến hai origin: Amplify (frontend Next.js SSR, luồng Static/SSR) và API Gateway (HTTP API) → Lambda (backend Express.js, luồng API Calls); Amplify cũng "SSR fetch" ngược về API khi render phía server. Riêng video HLS, player HLS.js tải m3u8/segments trực tiếp từ External Video Server qua URL path. Lambda backend truy vấn MongoDB Atlas (Query/Write qua TLS), cache tìm kiếm bằng Upstash Redis (Cache GET/SET), đọc secrets (JWT/DB/SES) từ SSM Parameter Store, lưu avatar trên S3 qua Pre-signed URL và gửi email qua SES. EventBridge Scheduler trigger Lambda hàng ngày (bulk email, kiểm tra subscription hết hạn). CloudWatch thu log/metric, khi vượt ngưỡng Alarm đẩy sang SNS gửi email cảnh báo admin. Chi tiết kiến trúc:
 
-![Movie Streaming Platform on AWS Architecture](/static/images/2-Proposal/awswebxemphimchua.drawio.png)
+![Movie Streaming Platform on AWS Architecture](/images/2-Proposal/awswebxemphimchua.drawio.png)
 
 Lưu ý về WAF: WAF không phải một "trạm" độc lập trên đường truyền — Web ACL được gắn trực tiếp vào CloudFront distribution và đánh giá request ngay tại edge location trước khi CloudFront xử lý. Web ACL cho CloudFront bắt buộc tạo ở scope Global (us-east-1).
 

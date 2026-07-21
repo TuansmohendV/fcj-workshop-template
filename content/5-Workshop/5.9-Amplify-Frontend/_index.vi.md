@@ -20,7 +20,7 @@ Sau khi backend đã chạy ổn ở bước trước, giờ chúng ta sẽ depl
 2. Chọn **GitHub** → **Next** → cửa sổ GitHub hiện ra → **Authorize AWS Amplify** → chọn repo + branch (vd `main`).
    - Nếu là monorepo: tick **My app is a monorepo** và điền `phim-fe` vào ô monorepo root.
 
-![deploy từ git provider](/static/images/5-Workshop/5.9-Amplify-Frontend/01-deploy-from-git.png)
+![deploy từ git provider](/images/5-Workshop/5.9-Amplify-Frontend/01-deploy-from-git.png)
 
 3. **App settings:** Amplify tự nhận framework **Next.js - SSR** và đọc `amplify.yml` sẵn có — giữ nguyên.
 4. Mở phần **Advanced settings → Environment variables**, thêm:
@@ -29,7 +29,7 @@ Sau khi backend đã chạy ổn ở bước trước, giờ chúng ta sẽ depl
 |---|---|---|
 | `NEXT_PUBLIC_API_URL` | `https://<api-id>.execute-api.ap-southeast-1.amazonaws.com/api` | ⚠️ **Bắt buộc có hậu tố `/api`** — code FE đọc biến này tại `src/config/API.js` |
 
-![advanced settings env](/static/images/5-Workshop/5.9-Amplify-Frontend/02-advanced-settings-env.png)
+![advanced settings env](/images/5-Workshop/5.9-Amplify-Frontend/02-advanced-settings-env.png)
 
 {{% notice tip %}}
 Cách tự kiểm tra tên biến: mở `phim-fe/src/config/API.js`, dòng 1: `export const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api'` — thấy rõ biến cần đặt và việc URL phải gồm `/api`.
@@ -42,7 +42,7 @@ Cách tự kiểm tra tên biến: mở `phim-fe/src/config/API.js`, dòng 1: `e
 1. Theo dõi pipeline: Provision → Build → Deploy. Lần đầu mất ~5–10 phút.
 2. Mở domain Amplify cấp: `https://<branch>.<app-id>.amplifyapp.com` — trang chủ web xem phim hiển thị, danh sách phim load được (chứng tỏ FE gọi API Gateway thành công).
 
-![deploy thành công](/static/images/5-Workshop/5.9-Amplify-Frontend/03-deploy-success.png)
+![deploy thành công](/images/5-Workshop/5.9-Amplify-Frontend/03-deploy-success.png)
 
 ### 9.4. Cập nhật FRONTEND_URL cho backend
 

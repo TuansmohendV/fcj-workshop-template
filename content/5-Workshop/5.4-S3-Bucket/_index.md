@@ -21,15 +21,15 @@ Create a **strictly private** S3 bucket for user avatars. The backend (`STORAGE_
    - **Default encryption:** keep SSE-S3 default
 3. → **Create bucket**.
 
-![bucket name](/static/images/5-Workshop/5.4-S3-Bucket/01-bucket-name.png)
+![bucket name](/images/5-Workshop/5.4-S3-Bucket/01-bucket-name.png)
 
 {{% notice warning %}}
 The **Block Public Access** section must have all 4 boxes ON — proof the bucket is not public (a security criterion in the grading rubric).
 {{% /notice %}}
 
-![block public access](/static/images/5-Workshop/5.4-S3-Bucket/02-block-public-access.png)
+![block public access](/images/5-Workshop/5.4-S3-Bucket/02-block-public-access.png)
 
-![default encryption](/static/images/5-Workshop/5.4-S3-Bucket/03-default-encryption.png)
+![default encryption](/images/5-Workshop/5.4-S3-Bucket/03-default-encryption.png)
 
 4. Configure CORS: open the bucket → **Permissions** tab → **Cross-origin resource sharing (CORS)** → **Edit** → paste:
 
@@ -47,7 +47,7 @@ The **Block Public Access** section must have all 4 boxes ON — proof the bucke
 
 → **Save changes**.
 
-![cors configuration](/static/images/5-Workshop/5.4-S3-Bucket/04-cors-configuration.png)
+![cors configuration](/images/5-Workshop/5.4-S3-Bucket/04-cors-configuration.png)
 
 {{% notice tip %}}
 After steps 9/10, tighten `AllowedOrigins` to your exact Amplify/CloudFront domains (least privilege).

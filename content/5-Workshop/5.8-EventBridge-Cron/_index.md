@@ -16,59 +16,59 @@ Use the **same zip** from step 7 — only the handler differs:
 
 1. **Lambda** → **Create function**: **name** `phim-cron`, **runtime** Node.js 20.x, **role** **`phim-lambda-role`**.
 
-![basic information](/static/images/5-Workshop/5.8-EventBridge-Cron/01-basic-information.png)
+![basic information](/images/5-Workshop/5.8-EventBridge-Cron/01-basic-information.png)
 
-![custom settings](/static/images/5-Workshop/5.8-EventBridge-Cron/02-custom-settings.png)
+![custom settings](/images/5-Workshop/5.8-EventBridge-Cron/02-custom-settings.png)
 
 2. Upload the same `phim-be-lambda.zip` (or from S3).
 
-![upload from s3](/static/images/5-Workshop/5.8-EventBridge-Cron/03-upload-from-s3.png)
+![upload from s3](/images/5-Workshop/5.8-EventBridge-Cron/03-upload-from-s3.png)
 
 3. **Runtime settings → Handler:** `src/lambdaCron.handler`.
 
-![handler lambdacron](/static/images/5-Workshop/5.8-EventBridge-Cron/04-handler-lambdacron.png)
+![handler lambdacron](/images/5-Workshop/5.8-EventBridge-Cron/04-handler-lambdacron.png)
 
 4. **General configuration:** Memory **512 MB**, Timeout **60 s**.
 
-![edit general config](/static/images/5-Workshop/5.8-EventBridge-Cron/05-edit-general-config.png)
+![edit general config](/images/5-Workshop/5.8-EventBridge-Cron/05-edit-general-config.png)
 
 5. **Environment variables:** `USE_SSM=true` · `SSM_PREFIX=/phim/prod` · `NODE_ENV=production`.
 
-![edit env vars](/static/images/5-Workshop/5.8-EventBridge-Cron/06-edit-env-vars.png)
+![edit env vars](/images/5-Workshop/5.8-EventBridge-Cron/06-edit-env-vars.png)
 
 ### 8.2. Test it now
 
 **Test** tab → default `{}` event → **Test**. Expect Succeeded with `{"ok":true,...}`.
 
-![test run](/static/images/5-Workshop/5.8-EventBridge-Cron/07-test-run.png)
+![test run](/images/5-Workshop/5.8-EventBridge-Cron/07-test-run.png)
 
 **Monitor → View CloudWatch logs** shows a `[Cron] checkExpiredSubscriptions: {...}` line.
 
-![log events](/static/images/5-Workshop/5.8-EventBridge-Cron/08-log-events.png)
+![log events](/images/5-Workshop/5.8-EventBridge-Cron/08-log-events.png)
 
 ### 8.3. Create the daily schedule
 
 1. Console → **Amazon EventBridge** → **Scheduler → Schedules** → **Create schedule**.
 2. **Schedule name:** `phim-daily-check-subs`.
 
-![schedule name](/static/images/5-Workshop/5.8-EventBridge-Cron/09-schedule-name.png)
+![schedule name](/images/5-Workshop/5.8-EventBridge-Cron/09-schedule-name.png)
 
 3. **Schedule pattern:** **Recurring schedule** → **Cron-based schedule**:
    - Cron expression: `cron(0 0 * * ? *)` (00:00 every day)
    - **Timezone:** `Asia/Ho_Chi_Minh` ⬅ important!
    - Flexible time window: **Off**
 
-![schedule pattern](/static/images/5-Workshop/5.8-EventBridge-Cron/10-schedule-pattern.png)
+![schedule pattern](/images/5-Workshop/5.8-EventBridge-Cron/10-schedule-pattern.png)
 
 4. **Target:** **AWS Lambda → Invoke** → select function `phim-cron` → leave payload `{}`.
 
-![target detail](/static/images/5-Workshop/5.8-EventBridge-Cron/11-target-detail.png)
+![target detail](/images/5-Workshop/5.8-EventBridge-Cron/11-target-detail.png)
 
 5. **Permissions:** let Scheduler **create a new role** (Create new role for this schedule) → **Create schedule**.
 
-![permissions](/static/images/5-Workshop/5.8-EventBridge-Cron/12-permissions.png)
+![permissions](/images/5-Workshop/5.8-EventBridge-Cron/12-permissions.png)
 
-![create schedule](/static/images/5-Workshop/5.8-EventBridge-Cron/13-create-schedule.png)
+![create schedule](/images/5-Workshop/5.8-EventBridge-Cron/13-create-schedule.png)
 
 ### Expected result
 

@@ -15,7 +15,7 @@ Trong bước này, chúng ta sẽ chuẩn bị "sân bãi" trước khi động
 1. Đăng nhập [AWS Console](https://console.aws.amazon.com/). Nếu chưa có tài khoản, đăng ký tại [aws.amazon.com](https://aws.amazon.com/) (cần thẻ tín dụng; workshop này chủ yếu trong free tier).
 2. Góc trên bên phải Console, chọn region **Asia Pacific (Singapore) `ap-southeast-1`** — mọi bước sau (trừ WAF/ACM cho CloudFront) đều làm ở region này.
 
-![region](/static/images/5-Workshop/5.2-Prerequisite/01-region.png)
+![region](/images/5-Workshop/5.2-Prerequisite/01-region.png)
 
 ### 2.2. Tạo IAM user quản trị (không dùng root)
 
@@ -24,15 +24,15 @@ Nguyên tắc bảo mật đầu tiên: **root chỉ dùng để tạo IAM user,
 1. Console → tìm **IAM** → **Users** → **Create user**.
 2. User name: `phim-admin` → tick **Provide user access to the AWS Management Console** → chọn **I want to create an IAM user** → đặt password.
 
-![tạo iam user](/static/images/5-Workshop/5.2-Prerequisite/02-create-iam-user.png)
+![tạo iam user](/images/5-Workshop/5.2-Prerequisite/02-create-iam-user.png)
 
 3. Permissions: chọn **Attach policies directly** → tick **`AdministratorAccess`** → **Next** → **Create user**.
 
-![gắn policy](/static/images/5-Workshop/5.2-Prerequisite/03-attach-policy.png)
+![gắn policy](/images/5-Workshop/5.2-Prerequisite/03-attach-policy.png)
 
 4. Bật MFA: IAM → Users → `phim-admin` → tab **Security credentials** → **Assign MFA device** → chọn Authenticator app → quét QR bằng Google Authenticator.
 
-![assign mfa](/static/images/5-Workshop/5.2-Prerequisite/04-assign-mfa.png)
+![assign mfa](/images/5-Workshop/5.2-Prerequisite/04-assign-mfa.png)
 
 5. Đăng xuất root, đăng nhập lại bằng `phim-admin`. Mọi bước sau đều làm với user này.
 
@@ -45,11 +45,11 @@ aws --version
 # aws-cli/2.x.x Python/3.x.x Windows/10 exe/AMD64
 ```
 
-![cli version](/static/images/5-Workshop/5.2-Prerequisite/05-cli-version.png)
+![cli version](/images/5-Workshop/5.2-Prerequisite/05-cli-version.png)
 
 2. Tạo access key cho CLI: IAM → Users → `phim-admin` → **Security credentials** → **Create access key** → chọn use-case **Command Line Interface (CLI)** → tạo và **tải file .csv về nơi an toàn** (chỉ hiện 1 lần).
 
-![access key](/static/images/5-Workshop/5.2-Prerequisite/06-access-key.png)
+![access key](/images/5-Workshop/5.2-Prerequisite/06-access-key.png)
 
 3. Cấu hình CLI:
 
@@ -61,7 +61,7 @@ aws configure
 # Default output format: json
 ```
 
-![aws configure](/static/images/5-Workshop/5.2-Prerequisite/07-aws-configure.png)
+![aws configure](/images/5-Workshop/5.2-Prerequisite/07-aws-configure.png)
 
 4. Kiểm tra:
 
@@ -71,7 +71,7 @@ aws sts get-caller-identity
 
 Kết quả phải trả về `Account` (12 số — **ghi lại số này**, các bước sau gọi là `<ACCOUNT_ID>`) và `Arn` chứa `user/phim-admin`.
 
-![sts get-caller-identity](/static/images/5-Workshop/5.2-Prerequisite/08-sts-get-caller-identity.png)
+![sts get-caller-identity](/images/5-Workshop/5.2-Prerequisite/08-sts-get-caller-identity.png)
 
 ### 2.4. Chuẩn bị source code & dịch vụ ngoài
 

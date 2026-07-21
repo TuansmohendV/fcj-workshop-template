@@ -15,7 +15,7 @@ Read the automatic Lambda + API Gateway logs/metrics in **CloudWatch**, create a
 1. Console → **CloudWatch** → **Log groups** → open **`/aws/lambda/phim-backend`**.
 2. Open the newest stream — per-request logs: `🔐 SSM parameters loaded from /phim/prod`, plus `START / END / REPORT` lines (REPORT includes Duration and Memory Used — great numbers for the report).
 
-![cloudwatch logs](/static/images/5-Workshop/5.11-Monitoring/01-cloudwatch-logs.png)
+![cloudwatch logs](/images/5-Workshop/5.11-Monitoring/01-cloudwatch-logs.png)
 
 ### 11.2. Metrics
 

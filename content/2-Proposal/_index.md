@@ -31,7 +31,7 @@ The platform scales automatically with demand and costs only \~$18–20/month �
 ### 3. Solution Architecture
 User requests flow through CloudFront (WAF Web ACL attached at the edge) to two origins: Amplify (Next.js SSR frontend, Static/SSR flow) and API Gateway (HTTP API) → Lambda (Express.js backend, API Calls flow); Amplify also performs "SSR fetch" back to the API during server-side rendering. HLS video is fetched by the HLS.js player directly from the External Video Server (m3u8/segments via URL path). The backend Lambda queries MongoDB Atlas (Query/Write over TLS), caches search results in Upstash Redis (Cache GET/SET), reads secrets (JWT/DB/SES) from SSM Parameter Store, stores avatars in S3 via Pre-signed URLs, and sends email through SES. EventBridge Scheduler triggers a Lambda daily (bulk email, expired-subscription checks). CloudWatch collects logs/metrics; on threshold breach an Alarm publishes to SNS, which emails the admin. The architecture is detailed below:
 
-![Movie Streaming Platform on AWS Architecture](/static/images/2-Proposal/awswebxemphimchua.drawio.png)
+![Movie Streaming Platform on AWS Architecture](/images/2-Proposal/awswebxemphimchua.drawio.png)
 
 Note on WAF: WAF is not a standalone hop on the network path — the Web ACL is attached directly to the CloudFront distribution and evaluates requests at the edge location before CloudFront processes them. A Web ACL used with CloudFront must be created in the Global scope (us-east-1).
 

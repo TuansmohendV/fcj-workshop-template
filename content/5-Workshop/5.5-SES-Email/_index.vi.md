@@ -17,7 +17,7 @@ Trong bước này, chúng ta sẽ cho backend gửi email (xác thực, quên m
 3. Mở hộp thư → click link xác nhận trong email "Amazon Web Services – Email Address Verification Request".
 4. Quay lại SES → Identities → trạng thái chuyển **Verified**.
 
-![tạo ses identity](/static/images/5-Workshop/5.5-SES-Email/01-create-ses-identity.png)
+![tạo ses identity](/images/5-Workshop/5.5-SES-Email/01-create-ses-identity.png)
 
 {{% notice warning %}}
 **SES Sandbox:** tài khoản mới ở chế độ sandbox — chỉ gửi **đến** các địa chỉ đã verify. Để test đủ luồng, verify thêm 1–2 địa chỉ email người nhận test.
@@ -41,8 +41,8 @@ SES → **Account dashboard** → khung "Your account is in the sandbox" → **R
 
 Gửi thử một email qua ứng dụng (vd đăng ký hoặc quên mật khẩu) để xác nhận SMTP credentials hoạt động đúng đầu-cuối.
 
-![gửi email test](/static/images/5-Workshop/5.5-SES-Email/02-send-test-email.png)
-![nhận email test](/static/images/5-Workshop/5.5-SES-Email/03-receive-test-email.png)
+![gửi email test](/images/5-Workshop/5.5-SES-Email/02-send-test-email.png)
+![nhận email test](/images/5-Workshop/5.5-SES-Email/03-receive-test-email.png)
 
 ### Kết quả mong đợi
 

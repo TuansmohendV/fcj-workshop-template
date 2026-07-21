@@ -15,7 +15,7 @@ Hệ thống đã chạy xong, nhưng chúng ta cần biết khi nào nó gặp 
 1. Console → **CloudWatch** → **Log groups** → mở **`/aws/lambda/phim-backend`**.
 2. Mở log stream mới nhất — thấy log của từng request: dòng `🔐 SSM parameters loaded from /phim/prod`, các dòng `START / END / REPORT RequestId...` (REPORT có Duration, Memory Used — số liệu tốt cho báo cáo).
 
-![cloudwatch logs](/static/images/5-Workshop/5.11-Monitoring/01-cloudwatch-logs.png)
+![cloudwatch logs](/images/5-Workshop/5.11-Monitoring/01-cloudwatch-logs.png)
 
 ### 11.2. Xem metrics
 

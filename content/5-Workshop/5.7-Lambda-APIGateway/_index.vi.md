@@ -19,14 +19,14 @@ Chạy PowerShell trong thư mục `phim-be/`:
 npm ci --omit=dev
 ```
 
-![npm ci production](/static/images/5-Workshop/5.7-Lambda-APIGateway/01-npm-ci-production.png)
+![npm ci production](/images/5-Workshop/5.7-Lambda-APIGateway/01-npm-ci-production.png)
 
 ```powershell
 # 2. Cài binary sharp cho Linux (Lambda chạy Linux, máy bạn là Windows)
 npm install --os=linux --cpu=x64 sharp
 ```
 
-![cài sharp cho linux](/static/images/5-Workshop/5.7-Lambda-APIGateway/02-install-sharp-linux.png)
+![cài sharp cho linux](/images/5-Workshop/5.7-Lambda-APIGateway/02-install-sharp-linux.png)
 
 ```powershell
 # 3. Nén source + node_modules
@@ -36,7 +36,7 @@ Compress-Archive -Path src,node_modules,package.json -DestinationPath phim-be-la
 (Get-Item phim-be-lambda.zip).Length / 1MB
 ```
 
-![zip sẵn sàng](/static/images/5-Workshop/5.7-Lambda-APIGateway/03-zip-ready.png)
+![zip sẵn sàng](/images/5-Workshop/5.7-Lambda-APIGateway/03-zip-ready.png)
 
 {{% notice tip %}}
 Nếu zip **> 50MB** thì không upload trực tiếp được trên Console — đẩy qua S3 (dùng luôn bucket bước 4):
@@ -54,16 +54,16 @@ aws s3 cp phim-be-lambda.zip s3://phim-avatars-<ACCOUNT_ID>/deploy/phim-be-lambd
    - **Permissions** → Change default execution role → **Use an existing role** → chọn **`phim-lambda-role`**
 2. → **Create function**.
 
-![tạo function](/static/images/5-Workshop/5.7-Lambda-APIGateway/04-create-function.png)
+![tạo function](/images/5-Workshop/5.7-Lambda-APIGateway/04-create-function.png)
 
 3. Upload code: tab **Code** → **Upload from** → **.zip file** (hoặc **Amazon S3 location** nếu zip > 50MB, dán `s3://phim-avatars-<ACCOUNT_ID>/deploy/phim-be-lambda.zip`).
 
-![upload zip](/static/images/5-Workshop/5.7-Lambda-APIGateway/05-upload-zip.png)
+![upload zip](/images/5-Workshop/5.7-Lambda-APIGateway/05-upload-zip.png)
 
 4. **Runtime settings** → **Edit** → **Handler:** `src/lambda.handler` → Save.
 5. **Configuration → General configuration → Edit:** Memory **1024 MB**, Timeout **30 giây** → Save.
 
-![general configuration](/static/images/5-Workshop/5.7-Lambda-APIGateway/06-general-configuration.png)
+![general configuration](/images/5-Workshop/5.7-Lambda-APIGateway/06-general-configuration.png)
 
 6. **Configuration → Environment variables → Edit**, thêm:
 
@@ -75,7 +75,7 @@ aws s3 cp phim-be-lambda.zip s3://phim-avatars-<ACCOUNT_ID>/deploy/phim-be-lambd
 | `S3_AVATAR_BUCKET` | `phim-avatars-<ACCOUNT_ID>` |
 | `NODE_ENV` | `production` |
 
-![environment variables](/static/images/5-Workshop/5.7-Lambda-APIGateway/07-environment-variables.png)
+![environment variables](/images/5-Workshop/5.7-Lambda-APIGateway/07-environment-variables.png)
 
 ### 7.3. Test function trong Console
 
@@ -99,7 +99,7 @@ Tab **Test** → **Create new event** → Event name `health-check` → dán eve
 
 → **Test**. Kết quả mong đợi: `statusCode: 200`, body chứa `{"status":"ok","message":"Server is running"}`.
 
-![test lambda](/static/images/5-Workshop/5.7-Lambda-APIGateway/08-test-lambda.png)
+![test lambda](/images/5-Workshop/5.7-Lambda-APIGateway/08-test-lambda.png)
 
 ### 7.4. Tạo API Gateway HTTP API
 
@@ -107,19 +107,19 @@ Tab **Test** → **Create new event** → Event name `health-check` → dán eve
    - **Integrations:** Add integration → **Lambda** → chọn `phim-backend`
    - **API name:** `phim-api`
 
-![configure api](/static/images/5-Workshop/5.7-Lambda-APIGateway/09-configure-api.png)
+![configure api](/images/5-Workshop/5.7-Lambda-APIGateway/09-configure-api.png)
 
 2. **Configure routes:** Method **ANY** · Resource path **`/{proxy+}`** · Integration target `phim-backend`.
 
-![configure routes](/static/images/5-Workshop/5.7-Lambda-APIGateway/10-configure-routes.png)
+![configure routes](/images/5-Workshop/5.7-Lambda-APIGateway/10-configure-routes.png)
 
 3. **Stages:** giữ `$default`, **Auto-deploy = ON** → **Next**.
 
-![define stages](/static/images/5-Workshop/5.7-Lambda-APIGateway/11-define-stages.png)
+![define stages](/images/5-Workshop/5.7-Lambda-APIGateway/11-define-stages.png)
 
 4. → **Create**. Copy **Invoke URL** (dạng `https://<api-id>.execute-api.ap-southeast-1.amazonaws.com`).
 
-![tạo api](/static/images/5-Workshop/5.7-Lambda-APIGateway/12-create-api.png)
+![tạo api](/images/5-Workshop/5.7-Lambda-APIGateway/12-create-api.png)
 
 ### 7.5. Kiểm tra từ internet
 
@@ -131,7 +131,7 @@ curl "https://<api-id>.execute-api.ap-southeast-1.amazonaws.com/api/movies?limit
 # JSON danh sách phim
 ```
 
-![kiểm tra api curl](/static/images/5-Workshop/5.7-Lambda-APIGateway/13-check-api-curl.png)
+![kiểm tra api curl](/images/5-Workshop/5.7-Lambda-APIGateway/13-check-api-curl.png)
 
 ### Kết quả mong đợi
 

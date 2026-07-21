@@ -24,7 +24,7 @@ pre : " <b> 5.3 </b> "
    - **Value:** dán connection string `mongodb+srv://...` của Atlas
    - → **Create parameter**.
 
-![tạo parameter mongodb](/static/images/5-Workshop/5.3-SSM-Parameters/01-create-parameter-mongodb.png)
+![tạo parameter mongodb](/images/5-Workshop/5.3-SSM-Parameters/01-create-parameter-mongodb.png)
 
 3. Lặp lại cho các parameter sau (tất cả **SecureString**, lấy giá trị từ file `.env` hiện tại của `phim-be`):
 
@@ -39,11 +39,11 @@ pre : " <b> 5.3 </b> "
 | `/phim/prod/EMAIL_USER` | SMTP username từ SES — *điền sau ở bước 5* |
 | `/phim/prod/EMAIL_PASS` | SMTP password từ SES — *điền sau ở bước 5* |
 
-![tạo parameter jwt](/static/images/5-Workshop/5.3-SSM-Parameters/02-create-parameter-jwt.png)
-![tạo parameter frontend url](/static/images/5-Workshop/5.3-SSM-Parameters/03-create-parameter-frontend-url.png)
-![tạo parameter smtp host](/static/images/5-Workshop/5.3-SSM-Parameters/04-create-parameter-smtp-host.png)
-![tạo parameter email user](/static/images/5-Workshop/5.3-SSM-Parameters/05-create-parameter-email-user.png)
-![tạo parameter email pass](/static/images/5-Workshop/5.3-SSM-Parameters/06-create-parameter-email-pass.png)
+![tạo parameter jwt](/images/5-Workshop/5.3-SSM-Parameters/02-create-parameter-jwt.png)
+![tạo parameter frontend url](/images/5-Workshop/5.3-SSM-Parameters/03-create-parameter-frontend-url.png)
+![tạo parameter smtp host](/images/5-Workshop/5.3-SSM-Parameters/04-create-parameter-smtp-host.png)
+![tạo parameter email user](/images/5-Workshop/5.3-SSM-Parameters/05-create-parameter-email-user.png)
+![tạo parameter email pass](/images/5-Workshop/5.3-SSM-Parameters/06-create-parameter-email-pass.png)
 
 {{% notice tip %}}
 4 parameter SMTP có thể tạo luôn với giá trị tạm `pending` rồi **Edit** lại sau khi làm xong bước 5 (SES), hoặc để bước 5 mới tạo — tùy bạn.
@@ -55,7 +55,7 @@ pre : " <b> 5.3 </b> "
 aws ssm get-parameters-by-path --path /phim/prod --with-decryption --query "Parameters[].Name"
 ```
 
-![verify cli](/static/images/5-Workshop/5.3-SSM-Parameters/07-verify-cli.png)
+![verify cli](/images/5-Workshop/5.3-SSM-Parameters/07-verify-cli.png)
 
 ### Kết quả mong đợi
 

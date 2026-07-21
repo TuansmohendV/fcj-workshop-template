@@ -15,15 +15,15 @@ pre : " <b> 5.6 </b> "
 1. Console → **IAM** → **Roles** → **Create role**.
 2. **Trusted entity type:** AWS service · **Use case:** **Lambda** → **Next**.
 
-![chọn trusted entity](/static/images/5-Workshop/5.6-IAM-Role/01-select-trusted-entity.png)
+![chọn trusted entity](/images/5-Workshop/5.6-IAM-Role/01-select-trusted-entity.png)
 
 3. **Add permissions:** tick policy **`AWSLambdaBasicExecutionRole`** (cho phép ghi CloudWatch Logs) → **Next**.
 
-![thêm permissions](/static/images/5-Workshop/5.6-IAM-Role/02-add-permissions.png)
+![thêm permissions](/images/5-Workshop/5.6-IAM-Role/02-add-permissions.png)
 
 4. **Role name:** `phim-lambda-role` → **Create role**.
 
-![đặt tên, review, tạo](/static/images/5-Workshop/5.6-IAM-Role/03-name-review-create.png)
+![đặt tên, review, tạo](/images/5-Workshop/5.6-IAM-Role/03-name-review-create.png)
 
 5. Mở role vừa tạo → tab **Permissions** → **Add permissions → Create inline policy** → tab **JSON** → dán (thay `<ACCOUNT_ID>` bằng account của bạn, sửa tên bucket nếu khác):
 
@@ -47,11 +47,11 @@ pre : " <b> 5.6 </b> "
 }
 ```
 
-![inline policy json](/static/images/5-Workshop/5.6-IAM-Role/04-inline-policy-json.png)
+![inline policy json](/images/5-Workshop/5.6-IAM-Role/04-inline-policy-json.png)
 
 6. **Policy name:** `phim-app-access` → **Create policy**.
 
-![role đã tạo](/static/images/5-Workshop/5.6-IAM-Role/05-role-created.png)
+![role đã tạo](/images/5-Workshop/5.6-IAM-Role/05-role-created.png)
 
 ### Giải thích least-privilege (dùng cho phần Bảo mật của báo cáo)
 

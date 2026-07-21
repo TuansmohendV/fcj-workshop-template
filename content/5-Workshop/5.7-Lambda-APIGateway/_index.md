@@ -19,14 +19,14 @@ In PowerShell inside `phim-be/`:
 npm ci --omit=dev
 ```
 
-![npm ci production](/static/images/5-Workshop/5.7-Lambda-APIGateway/01-npm-ci-production.png)
+![npm ci production](/images/5-Workshop/5.7-Lambda-APIGateway/01-npm-ci-production.png)
 
 ```powershell
 # 2. Install sharp's Linux binaries (Lambda runs Linux, your machine is Windows)
 npm install --os=linux --cpu=x64 sharp
 ```
 
-![install sharp linux](/static/images/5-Workshop/5.7-Lambda-APIGateway/02-install-sharp-linux.png)
+![install sharp linux](/images/5-Workshop/5.7-Lambda-APIGateway/02-install-sharp-linux.png)
 
 ```powershell
 # 3. Zip source + node_modules
@@ -36,7 +36,7 @@ Compress-Archive -Path src,node_modules,package.json -DestinationPath phim-be-la
 (Get-Item phim-be-lambda.zip).Length / 1MB
 ```
 
-![zip ready](/static/images/5-Workshop/5.7-Lambda-APIGateway/03-zip-ready.png)
+![zip ready](/images/5-Workshop/5.7-Lambda-APIGateway/03-zip-ready.png)
 
 {{% notice tip %}}
 If the zip is **> 50MB**, upload via S3 instead (reuse the bucket from step 4):
@@ -50,16 +50,16 @@ aws s3 cp phim-be-lambda.zip s3://phim-avatars-<ACCOUNT_ID>/deploy/phim-be-lambd
 
 1. Console → **Lambda** → **Create function** → **Author from scratch**: **name** `phim-backend`, **runtime** **Node.js 20.x**, **arch** `x86_64`, execution role → **Use an existing role** → **`phim-lambda-role`** → **Create function**.
 
-![create function](/static/images/5-Workshop/5.7-Lambda-APIGateway/04-create-function.png)
+![create function](/images/5-Workshop/5.7-Lambda-APIGateway/04-create-function.png)
 
 2. **Code** tab → **Upload from** → **.zip file** (or **Amazon S3 location** if > 50MB, paste `s3://phim-avatars-<ACCOUNT_ID>/deploy/phim-be-lambda.zip`).
 
-![upload zip](/static/images/5-Workshop/5.7-Lambda-APIGateway/05-upload-zip.png)
+![upload zip](/images/5-Workshop/5.7-Lambda-APIGateway/05-upload-zip.png)
 
 3. **Runtime settings** → **Edit** → **Handler:** `src/lambda.handler` → Save.
 4. **Configuration → General configuration → Edit:** Memory **1024 MB**, Timeout **30 seconds** → Save.
 
-![general configuration](/static/images/5-Workshop/5.7-Lambda-APIGateway/06-general-configuration.png)
+![general configuration](/images/5-Workshop/5.7-Lambda-APIGateway/06-general-configuration.png)
 
 5. **Configuration → Environment variables → Edit**, add:
 
@@ -71,7 +71,7 @@ aws s3 cp phim-be-lambda.zip s3://phim-avatars-<ACCOUNT_ID>/deploy/phim-be-lambd
 | `S3_AVATAR_BUCKET` | `phim-avatars-<ACCOUNT_ID>` |
 | `NODE_ENV` | `production` |
 
-![environment variables](/static/images/5-Workshop/5.7-Lambda-APIGateway/07-environment-variables.png)
+![environment variables](/images/5-Workshop/5.7-Lambda-APIGateway/07-environment-variables.png)
 
 ### 7.3. Test the function in the Console
 
@@ -95,25 +95,25 @@ aws s3 cp phim-be-lambda.zip s3://phim-avatars-<ACCOUNT_ID>/deploy/phim-be-lambd
 
 → **Test**. Expect `statusCode: 200` and a body containing `{"status":"ok","message":"Server is running"}`.
 
-![test lambda](/static/images/5-Workshop/5.7-Lambda-APIGateway/08-test-lambda.png)
+![test lambda](/images/5-Workshop/5.7-Lambda-APIGateway/08-test-lambda.png)
 
 ### 7.4. Create the HTTP API
 
 1. Console → **API Gateway** → **Create API** → **HTTP API** → **Build**: integration **Lambda** → `phim-backend`, **API name** `phim-api`.
 
-![configure api](/static/images/5-Workshop/5.7-Lambda-APIGateway/09-configure-api.png)
+![configure api](/images/5-Workshop/5.7-Lambda-APIGateway/09-configure-api.png)
 
 2. **Configure routes:** Method **ANY** · Resource path **`/{proxy+}`** · Integration target `phim-backend`.
 
-![configure routes](/static/images/5-Workshop/5.7-Lambda-APIGateway/10-configure-routes.png)
+![configure routes](/images/5-Workshop/5.7-Lambda-APIGateway/10-configure-routes.png)
 
 3. **Stages:** keep `$default`, **Auto-deploy = ON** → **Next**.
 
-![define stages](/static/images/5-Workshop/5.7-Lambda-APIGateway/11-define-stages.png)
+![define stages](/images/5-Workshop/5.7-Lambda-APIGateway/11-define-stages.png)
 
 4. → **Create**. Copy the **Invoke URL** (`https://<api-id>.execute-api.ap-southeast-1.amazonaws.com`).
 
-![create api](/static/images/5-Workshop/5.7-Lambda-APIGateway/12-create-api.png)
+![create api](/images/5-Workshop/5.7-Lambda-APIGateway/12-create-api.png)
 
 ### 7.5. Verify from the internet
 
@@ -125,7 +125,7 @@ curl "https://<api-id>.execute-api.ap-southeast-1.amazonaws.com/api/movies?limit
 # JSON list of movies
 ```
 
-![check api curl](/static/images/5-Workshop/5.7-Lambda-APIGateway/13-check-api-curl.png)
+![check api curl](/images/5-Workshop/5.7-Lambda-APIGateway/13-check-api-curl.png)
 
 ### Expected result
 

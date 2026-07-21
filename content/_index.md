@@ -28,7 +28,7 @@ chapter: false
 
 &emsp; **Internship Duration:** From 05/05/2026 to 30/07/2026
 
-![Your profile picture](/static/images/maithanhtuan.png)
+![Your profile picture](/images/maithanhtuan.png)
 
 ### Report Content
 

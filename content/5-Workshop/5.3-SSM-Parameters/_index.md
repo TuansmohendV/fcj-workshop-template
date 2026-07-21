@@ -24,7 +24,7 @@ Move all backend secrets (connection strings, JWT secret, email credentials…) 
    - **Value:** paste the Atlas `mongodb+srv://...` connection string
    - → **Create parameter**.
 
-![create parameter mongodb](/static/images/5-Workshop/5.3-SSM-Parameters/01-create-parameter-mongodb.png)
+![create parameter mongodb](/images/5-Workshop/5.3-SSM-Parameters/01-create-parameter-mongodb.png)
 
 3. Repeat for the following (all **SecureString**, values from your current `phim-be` `.env`):
 
@@ -39,11 +39,11 @@ Move all backend secrets (connection strings, JWT secret, email credentials…) 
 | `/phim/prod/EMAIL_USER` | SES SMTP username — *fill in at step 5* |
 | `/phim/prod/EMAIL_PASS` | SES SMTP password — *fill in at step 5* |
 
-![create parameter jwt](/static/images/5-Workshop/5.3-SSM-Parameters/02-create-parameter-jwt.png)
-![create parameter frontend url](/static/images/5-Workshop/5.3-SSM-Parameters/03-create-parameter-frontend-url.png)
-![create parameter smtp host](/static/images/5-Workshop/5.3-SSM-Parameters/04-create-parameter-smtp-host.png)
-![create parameter email user](/static/images/5-Workshop/5.3-SSM-Parameters/05-create-parameter-email-user.png)
-![create parameter email pass](/static/images/5-Workshop/5.3-SSM-Parameters/06-create-parameter-email-pass.png)
+![create parameter jwt](/images/5-Workshop/5.3-SSM-Parameters/02-create-parameter-jwt.png)
+![create parameter frontend url](/images/5-Workshop/5.3-SSM-Parameters/03-create-parameter-frontend-url.png)
+![create parameter smtp host](/images/5-Workshop/5.3-SSM-Parameters/04-create-parameter-smtp-host.png)
+![create parameter email user](/images/5-Workshop/5.3-SSM-Parameters/05-create-parameter-email-user.png)
+![create parameter email pass](/images/5-Workshop/5.3-SSM-Parameters/06-create-parameter-email-pass.png)
 
 {{% notice tip %}}
 The 4 SMTP parameters can be created now with a placeholder value (`pending`) and **edited** after finishing step 5 (SES) — or you can skip them until you get there.
@@ -55,7 +55,7 @@ The 4 SMTP parameters can be created now with a placeholder value (`pending`) an
 aws ssm get-parameters-by-path --path /phim/prod --with-decryption --query "Parameters[].Name"
 ```
 
-![verify cli](/static/images/5-Workshop/5.3-SSM-Parameters/07-verify-cli.png)
+![verify cli](/images/5-Workshop/5.3-SSM-Parameters/07-verify-cli.png)
 
 ### Expected result
 

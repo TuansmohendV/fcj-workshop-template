@@ -21,15 +21,15 @@ pre : " <b> 5.4 </b> "
    - **Default encryption:** giữ mặc định SSE-S3 (`Amazon S3 managed keys`)
 3. → **Create bucket**.
 
-![bucket name](/static/images/5-Workshop/5.4-S3-Bucket/01-bucket-name.png)
+![bucket name](/images/5-Workshop/5.4-S3-Bucket/01-bucket-name.png)
 
 {{% notice warning %}}
 Phần **Block Public Access** phải bật cả 4 ô — minh chứng bucket không public (tiêu chí bảo mật của thang điểm).
 {{% /notice %}}
 
-![block public access](/static/images/5-Workshop/5.4-S3-Bucket/02-block-public-access.png)
+![block public access](/images/5-Workshop/5.4-S3-Bucket/02-block-public-access.png)
 
-![default encryption](/static/images/5-Workshop/5.4-S3-Bucket/03-default-encryption.png)
+![default encryption](/images/5-Workshop/5.4-S3-Bucket/03-default-encryption.png)
 
 4. Cấu hình CORS (cho phép trình duyệt gọi khi cần): mở bucket → tab **Permissions** → kéo xuống **Cross-origin resource sharing (CORS)** → **Edit** → dán:
 
@@ -47,7 +47,7 @@ Phần **Block Public Access** phải bật cả 4 ô — minh chứng bucket kh
 
 → **Save changes**.
 
-![cấu hình cors](/static/images/5-Workshop/5.4-S3-Bucket/04-cors-configuration.png)
+![cấu hình cors](/images/5-Workshop/5.4-S3-Bucket/04-cors-configuration.png)
 
 {{% notice tip %}}
 Sau bước 9/10 khi đã có domain Amplify/CloudFront chính thức, có thể thu hẹp `AllowedOrigins` về đúng 2 domain đó (least privilege).

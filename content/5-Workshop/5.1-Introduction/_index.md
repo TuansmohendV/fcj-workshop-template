@@ -40,7 +40,7 @@ The system currently runs on a single PaaS host and faces 4 problems for serious
 
 ### Architecture & data flow
 
-![Architecture diagram](/static/images/5-Workshop/architecture/architecture-diagram.png)
+![Architecture diagram](/images/5-Workshop/architecture/architecture-diagram.png)
 
 - **Users → CloudFront:** every request passes through CloudFront; the WAF Web ACL inspects at the edge first, blocking malicious requests (injection, bots, bad IPs).
 - **CloudFront → Amplify:** the default behavior serves the Next.js app (static + SSR).

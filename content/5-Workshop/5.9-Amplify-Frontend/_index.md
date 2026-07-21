@@ -19,7 +19,7 @@ Ensure `phim-fe/` is pushed to GitHub and `amplify.yml` sits at the frontend roo
 1. Console → **AWS Amplify** → **Create new app** (Host web app).
 2. Choose **GitHub** → authorize → pick the repo + branch (e.g. `main`). For a monorepo, check **My app is a monorepo** and enter `phim-fe`.
 
-![deploy from git provider](/static/images/5-Workshop/5.9-Amplify-Frontend/01-deploy-from-git.png)
+![deploy from git provider](/images/5-Workshop/5.9-Amplify-Frontend/01-deploy-from-git.png)
 
 3. Amplify auto-detects **Next.js - SSR** and reads the existing `amplify.yml` — keep defaults.
 4. **Advanced settings → Environment variables:**
@@ -28,7 +28,7 @@ Ensure `phim-fe/` is pushed to GitHub and `amplify.yml` sits at the frontend roo
 |---|---|---|
 | `NEXT_PUBLIC_API_URL` | `https://<api-id>.execute-api.ap-southeast-1.amazonaws.com/api` | ⚠️ **The `/api` suffix is required** — the FE reads this in `src/config/API.js` |
 
-![advanced settings env](/static/images/5-Workshop/5.9-Amplify-Frontend/02-advanced-settings-env.png)
+![advanced settings env](/images/5-Workshop/5.9-Amplify-Frontend/02-advanced-settings-env.png)
 
 {{% notice tip %}}
 To double-check the variable name: open `phim-fe/src/config/API.js`, line 1: `export const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api'` — confirms the variable name and that the URL must include `/api`.
@@ -41,7 +41,7 @@ To double-check the variable name: open `phim-fe/src/config/API.js`, line 1: `ex
 1. Watch the pipeline: Provision → Build → Deploy (~5–10 minutes the first time).
 2. Open `https://<branch>.<app-id>.amplifyapp.com` — the movie homepage renders and movie lists load (the FE reaches API Gateway).
 
-![deploy success](/static/images/5-Workshop/5.9-Amplify-Frontend/03-deploy-success.png)
+![deploy success](/images/5-Workshop/5.9-Amplify-Frontend/03-deploy-success.png)
 
 ### 9.4. Update FRONTEND_URL for the backend
 

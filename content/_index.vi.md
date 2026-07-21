@@ -25,7 +25,7 @@ chapter: false
 
 &emsp; **Thời gian thực tập:** Từ ngày 05/05/2026 đến ngày 30/07/2026
 
-![Ảnh đại diện của bạn](/static/images/maithanhtuan.png)
+![Ảnh đại diện của bạn](/images/maithanhtuan.png)
 
 
 

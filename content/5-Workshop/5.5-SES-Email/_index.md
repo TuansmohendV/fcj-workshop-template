@@ -17,7 +17,7 @@ Let the backend send email (verification, password reset, notifications) through
 3. Open your inbox → click the confirmation link.
 4. Back in SES the status becomes **Verified**.
 
-![create ses identity](/static/images/5-Workshop/5.5-SES-Email/01-create-ses-identity.png)
+![create ses identity](/images/5-Workshop/5.5-SES-Email/01-create-ses-identity.png)
 
 {{% notice warning %}}
 **SES Sandbox:** new accounts can only send **to** verified addresses. Verify 1–2 extra recipient addresses for testing.
@@ -41,8 +41,8 @@ SES → **Account dashboard** → **Request production access** → Mail type `T
 
 Send yourself a test email through the app (e.g. registration or password reset) to confirm the SMTP credentials work end-to-end.
 
-![send test email](/static/images/5-Workshop/5.5-SES-Email/02-send-test-email.png)
-![receive test email](/static/images/5-Workshop/5.5-SES-Email/03-receive-test-email.png)
+![send test email](/images/5-Workshop/5.5-SES-Email/02-send-test-email.png)
+![receive test email](/images/5-Workshop/5.5-SES-Email/03-receive-test-email.png)
 
 ### Expected result
 
