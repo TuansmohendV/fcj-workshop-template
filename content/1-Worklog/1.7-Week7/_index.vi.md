@@ -1,59 +1,33 @@
 ---
 title: "Worklog Tuần 7"
-date: 2024-01-01
+date: 2026-26-05
 weight: 1
 chapter: false
 pre: " <b> 1.7. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
-
 
 ### Mục tiêu tuần 7:
 
-* Kết nối, làm quen với các thành viên trong First Cloud AI Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Nghiên cứu và triển khai giải pháp quản lý danh tính, phân quyền (IAM) kết hợp với giải pháp mã hóa dữ liệu lưu trữ trên AWS cloud.
+* Xây dựng cấu trúc phân quyền an toàn theo nguyên tắc đặc quyền tối thiểu (Least Privilege) cho nhóm người dùng và dịch vụ lưu trữ Amazon S3.
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCAJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
 
+* **Quản lý phân quyền (IAM):** Thiết lập Customer Managed Policy, IAM Role cho dịch vụ, IAM User, và IAM User Group trên AWS Console.
+* **Mã hóa dữ liệu (KMS):** Khởi tạo và cấu hình khóa đối xứng Customer Managed Key (KMS) để chuẩn bị tích hợp mã hóa mặc định cho S3 Bucket.
 
 ### Kết quả đạt được tuần 7:
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+#### 1. Hoàn thành thiết lập Identity and Access Management (IAM)
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
+* **Tạo Custom Policy & Role:** Khởi tạo thành công `kms-key-policy` và gán vào IAM Role mang tên `kms-key-role`. Role này cấu hình Trust Relationship cho phép dịch vụ Amazon S3 (`s3.amazonaws.com`) thực thi.
+* **Quản lý Nhóm người dùng (User Group):** Tạo User Group mang tên `GroupLimit` và đính kèm AWS Managed Policy `AmazonS3FullAccess` để kiểm soát quyền hạn truy cập tài nguyên lưu trữ.
+* **Quản lý Người dùng (IAM User):** 
+  * Khởi tạo thành công IAM User mới có tên `User-S34`, kích hoạt quyền truy cập AWS Management Console bằng mật khẩu tùy chỉnh.
+  * Gán người dùng `User-S34` vào nhóm `GroupLimit` để kế thừa các quyền hạn của nhóm.
+  * Xuất file thông tin bảo mật đăng nhập (`credentials.csv`) và tiến hành kiểm tra đăng nhập thành công vào AWS Console với thông tin định danh mới.
 
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
+#### 2. Khởi tạo và cấu hình AWS Key Management Service (KMS)
 
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+* Thực hiện các bước thiết lập khóa mã hóa đối xứng (Symmetric Key) thuộc loại Customer Managed Key.
+* Cấu hình phân quyền quản trị khóa (Key Administrator) cho tài khoản quản trị hiện tại và chỉ định quyền sử dụng khóa (Key Usage Permissions) cho `kms-key-role` nhằm cho phép S3 sử dụng khóa để mã hóa/giải mã dữ liệu.

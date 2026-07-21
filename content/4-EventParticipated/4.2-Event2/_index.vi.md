@@ -1,125 +1,74 @@
 ---
 title: "Event 2"
-date: 2024-01-01
+date: 2026-06-20
 weight: 1
 chapter: false
 pre: " <b> 4.2. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
 
-# Bài thu hoạch “GenAI-powered App-DB Modernization workshop”
 
-### Mục Đích Của Sự Kiện
+# Bài thu hoạch “FCAJ Cloud Architect”
 
-- Chia sẻ best practices trong thiết kế ứng dụng hiện đại
-- Giới thiệu phương pháp DDD và event-driven architecture
-- Hướng dẫn lựa chọn compute services phù hợp
-- Giới thiệu công cụ AI hỗ trợ development lifecycle
+### Tổng Quan Về Sự Kiện Đã Tham Gia
 
-### Danh Sách Diễn Giả
+Vào ngày 20/06/2026 vừa qua, tôi đã có cơ hội tham dự chương trình FCAJ Cloud Architect với tư cách là một khán giả và người quan sát học hỏi. Đây là một sân chơi công nghệ được tổ chức theo mô hình thi đấu đối kháng cực kỳ gay cấn, tập trung vào việc thử thách tư duy thiết kế hệ thống, phân tích yêu cầu kiến trúc và tối ưu hóa hạ tầng trên nền tảng điện toán đám mây Amazon Web Services (AWS).
 
-- **Jignesh Shah** - Director, Open Source Databases
-- **Erica Liu** - Sr. GTM Specialist, AppMod
-- **Fabrianne Effendi** - Assc. Specialist SA, Serverless Amazon Web Services
+### Thông tin chung:
 
-### Nội Dung Nổi Bật
+* **Thời gian:** 09:00, ngày 20 tháng 06 năm 2026
+* **Địa điểm:** Tầng 26, tòa nhà Bitexco, số 02 đường Hải Triều, phường Sài Gòn, thành phố Hồ Chí Minh
+* **Tên hoạt động:** FCAJ Cloud Architect
+* **Hình thức:** Thi đấu theo đội, trả lời câu hỏi và xử lý tình huống về AWS Cloud Architecture
+* **Số lượng đội tham gia:** 8 đội
+* **Vai trò:** Người tham gia 
+* **Nội dung chính:** AWS Cloud Practitioner, Solution Architect Associate, kiến trúc cloud, Solution Architect Professional, xử lý sự cố và tối ưu hệ thống
 
-#### Đưa ra các ảnh hưởng tiêu cực của kiến trúc ứng dụng cũ
+### Diễn Biến Giải Đấu
 
-- Thời gian release sản phẩm lâu → Mất doanh thu/bỏ lỡ cơ hội
-- Hoạt động kém hiệu quả → Mất năng suất, tốn kém chi phí
-- Không tuân thủ các quy định về bảo mật → Mất an ninh, uy tín
+Là một người trực tiếp theo dõi từ khán đài, Em đã chứng kiến những màn rượt đuổi tỷ số vô cùng nghẹt thở giữa 8 đội chơi: KTKAT, PrimeOps, Team newbie, Young Flame IT, Loser, Ngũ đại hiệp, Gặp phải thắng liều, và Lifelong Learners.
 
-#### Chuyển đổi sang kiến trúc ứng dụng mới - Microservice Architecture
+### Thể thức thi đấu nghiêm túc và áp lực
 
-Chuyển đổi thành hệ thống modular – từng chức năng là một **dịch vụ độc lập** giao tiếp với nhau qua **sự kiện** với 3 trụ cột cốt lõi:
+Giải đấu áp dụng thể thức loại trực tiếp qua các vòng với độ khó của câu hỏi tăng dần, bao quát từ chứng chỉ cơ bản đến chuyên sâu của AWS:
 
-- **Queue Management**: Xử lý tác vụ bất đồng bộ
-- **Caching Strategy:** Tối ưu performance
-- **Message Handling:** Giao tiếp linh hoạt giữa services
+Vòng Tứ Kết (Tổng điểm 180): Gồm 5 câu Cloud Practitioner (10đ/câu), 4 câu Solution Architect Associate (20đ/câu) và 1 câu Solution Architect Professional (50đ/câu).
 
-#### Domain-Driven Design (DDD)
+Vòng Bán Kết (Tổng điểm 220): Độ khó đẩy lên cao khi tăng thêm 1 câu hỏi cấp độ chuyên gia (2 câu SA Pro - 50đ/câu) và giảm bớt câu hỏi nền tảng.
 
-- **Phương pháp 4 bước**: Xác định domain events → sắp xếp timeline → identify actors → xác định bounded contexts
-- **Case study bookstore**: Minh họa cách áp dụng DDD thực tế
-- **Context mapping**: 7 patterns tích hợp bounded contexts
+### Cập nhật cục diện giải đấu
 
-#### Event-Driven Architecture
+Sau những trận tranh tài căng thẳng ở vòng đầu tiên, 4 cái tên xuất sắc nhất đã lộ diện và cống hiến những trận bán kết đỉnh cao:
 
-- **3 patterns tích hợp**: Publish/Subscribe, Point-to-point, Streaming
-- **Lợi ích**: Loose coupling, scalability, resilience
-- **So sánh sync vs async**: Hiểu rõ trade-offs (sự đánh đổi)
+Bán kết 1: Cuộc đối đầu giữa KTKAT và Young Flame IT.
 
-#### Compute Evolution
+Bán kết 2: Trận đấu cân tài cân sức giữa Ngũ đại hiệp và Lifelong Learners.
 
-- **Shared Responsibility Model**: Từ EC2 → ECS → Fargate → Lambda
-- **Serverless benefits**: No server management, auto-scaling, pay-for-value
-- **Functions vs Containers**: Criteria lựa chọn phù hợp
+Hai đội chiến thắng ở bán kết sẽ tiếp tục thi đấu trận chung kết để tìm ra đội mạnh nhất của hoạt động FCAJ Cloud Architect.
 
-#### Amazon Q Developer
+### Những Thu Hoạch Kiến Thức Góc Nhìn Quan Sát
 
-- **SDLC automation**: Từ planning đến maintenance
-- **Code transformation**: Java upgrade, .NET modernization
-- **AWS Transform agents**: VMware, Mainframe, .NET migration
+Dù không trực tiếp đứng trên sân khấu để bấm chuông trả lời, việc ngồi dưới khán đài, tự suy nghĩ đáp án và lắng nghe phần phân tích của các đội thi cũng như ban giám khảo đã giúp tôi mở rộng tư duy rất nhiều.
 
-### Những Gì Học Được
+Hệ thống hóa kiến thức AWS từ cơ bản đến nâng cao
+Cấp độ Nền tảng (Cloud Practitioner): Tôi được ôn tập lại định nghĩa cốt lõi về mô hình trách nhiệm chia sẻ (Shared Responsibility Model), cách phân biệt các dịch vụ lưu trữ và tính toán cơ bản như Amazon S3, EC2, RDS hay cách vận dụng CloudWatch để giám sát hệ thống.
 
-#### Tư Duy Thiết Kế
+Cấp độ Kiến trúc sư (SAA & SAP): Qua các câu hỏi tình huống phức tạp, tôi hiểu sâu hơn về cách thiết kế mạng an toàn với VPC (Public/Private Subnet, NAT Gateway, Security Group), cách phân phối nội dung toàn cầu bằng CloudFront, hay việc ứng dụng Amazon SQS để tách rời các thành phần giúp hệ thống chạy bất đồng bộ và tăng khả năng chịu tải.
 
-- **Business-first approach**: Luôn bắt đầu từ business domain, không phải technology
-- **Ubiquitous language**: Importance của common vocabulary giữa business và tech teams
-- **Bounded contexts**: Cách identify và manage complexity trong large systems
+Học hỏi tư duy xử lý sự cố thực tế
+Điều tôi tâm đắc nhất khi quan sát giải đấu này chính là cách các đội phân tích lỗi hệ thống. Khi gặp các câu hỏi dạng "Hạ tầng bị nghẽn mạng" hoặc "Chi phí tăng đột biến", tôi đã học được quy trình loại trừ nguyên nhân: kiểm tra Route Table trước, xem xét lại cấu hình Auto Scaling, kiểm tra lượng dữ liệu truyền qua NAT Gateway... Đây đều là những bài học thực chiến mà sách vở lý thuyết ít khi mô tả chi tiết.
 
-#### Kiến Trúc Kỹ Thuật
+Bài học về kỹ năng làm việc nhóm dưới áp lực
+Nhìn các đội thi thảo luận, tôi nhận ra tầm quan trọng của việc giao tiếp hiệu quả. Trong thời gian ngắn, mỗi thành viên phải tự phụ trách một mảng thế mạnh (người giỏi Networking, người rành Database/Security) rồi nhanh chóng hội ý để đưa ra đáp án chung. Sự đồng lòng và tin tưởng lẫn nhau chính là chìa khóa giúp các đội tiến sâu vào vòng trong.
 
-- **Event storming technique**: Phương pháp thực tế để mô hình hóa quy trình kinh doanh
-- Sử dụng **Event-driven communication** thay vì synchronous calls
-- **Integration patterns**: Hiểu khi nào dùng sync, async, pub/sub, streaming
-- **Compute spectrum**: Criteria chọn từ VM → containers → serverless
+### Định Hướng Ứng Dụng Vào Bản Thân
 
-#### Chiến Lược Hiện Đại Hóa
+Chuyến đi thực tế tại Bitexco lần này đã mang lại cho tôi nguồn động lực lớn để phát triển kỹ năng cá nhân:
 
-- **Phased approach**: Không rush, phải có roadmap rõ ràng
-- **7Rs framework**: Nhiều con đường khác nhau tùy thuộc vào đặc điểm của mỗi ứng dụng
-- **ROI measurement**: Cost reduction + business agility
+Về mặt học tập: Tôi nhận ra mình cần phải củng cố kỹ hơn các mảng kiến thức về Bảo mật (IAM, Encryption) và Cloud Networking (VPC). Tôi sẽ áp dụng ngay tư duy chia nhỏ module hệ thống này vào các bài tập lớn và đồ án sắp tới của mình.
 
-### Ứng Dụng Vào Công Việc
+Về mặt nghề nghiệp: Việc chứng kiến tầm quan trọng của điện toán đám mây trong việc vận hành doanh nghiệp giúp tôi kiên định hơn với định hướng tìm hiểu sâu về Cloud, DevOps và Backend. Tôi sẽ lên kế hoạch tự học để chinh phục các chứng chỉ của AWS trong tương lai gần nhằm gia tăng lợi thế cạnh tranh khi ra trường.
 
-- **Áp dụng DDD** cho project hiện tại: Event storming sessions với business team
-- **Refactor microservices**: Sử dụng bounded contexts để identify service boundaries
-- **Implement event-driven patterns**: Thay thế một số sync calls bằng async messaging
-- **Serverless adoption**: Pilot AWS Lambda cho một số use cases phù hợp
-- **Try Amazon Q Developer**: Integrate vào development workflow để boost productivity
+### bài học rút ra
 
-### Trải nghiệm trong event
-
-Tham gia workshop **“GenAI-powered App-DB Modernization”** là một trải nghiệm rất bổ ích, giúp tôi có cái nhìn toàn diện về cách hiện đại hóa ứng dụng và cơ sở dữ liệu bằng các phương pháp và công cụ hiện đại. Một số trải nghiệm nổi bật:
-
-#### Học hỏi từ các diễn giả có chuyên môn cao
-- Các diễn giả đến từ AWS và các tổ chức công nghệ lớn đã chia sẻ **best practices** trong thiết kế ứng dụng hiện đại.
-- Qua các case study thực tế, tôi hiểu rõ hơn cách áp dụng **Domain-Driven Design (DDD)** và **Event-Driven Architecture** vào các project lớn.
-
-#### Trải nghiệm kỹ thuật thực tế
-- Tham gia các phiên trình bày về **event storming** giúp tôi hình dung cách **mô hình hóa quy trình kinh doanh** thành các domain events.
-- Học cách **phân tách microservices** và xác định **bounded contexts** để quản lý sự phức tạp của hệ thống lớn.
-- Hiểu rõ trade-offs giữa **synchronous và asynchronous communication** cũng như các pattern tích hợp như **pub/sub, point-to-point, streaming**.
-
-#### Ứng dụng công cụ hiện đại
-- Trực tiếp tìm hiểu về **Amazon Q Developer**, công cụ AI hỗ trợ SDLC từ lập kế hoạch đến maintenance.
-- Học cách **tự động hóa code transformation** và pilot serverless với **AWS Lambda**, từ đó nâng cao năng suất phát triển.
-
-#### Kết nối và trao đổi
-- Workshop tạo cơ hội trao đổi trực tiếp với các chuyên gia, đồng nghiệp và team business, giúp **nâng cao ngôn ngữ chung (ubiquitous language)** giữa business và tech.
-- Qua các ví dụ thực tế, tôi nhận ra tầm quan trọng của **business-first approach**, luôn bắt đầu từ nhu cầu kinh doanh thay vì chỉ tập trung vào công nghệ.
-
-#### Bài học rút ra
-- Việc áp dụng DDD và event-driven patterns giúp giảm **coupling**, tăng **scalability** và **resilience** cho hệ thống.
-- Chiến lược hiện đại hóa cần **phased approach** và đo lường **ROI**, không nên vội vàng chuyển đổi toàn bộ hệ thống.
-- Các công cụ AI như Amazon Q Developer có thể **boost productivity** nếu được tích hợp vào workflow phát triển hiện tại.
-
-#### Một số hình ảnh khi tham gia sự kiện
-* Thêm các hình ảnh của các bạn tại đây
-> Tổng thể, sự kiện không chỉ cung cấp kiến thức kỹ thuật mà còn giúp tôi thay đổi cách tư duy về thiết kế ứng dụng, hiện đại hóa hệ thống và phối hợp hiệu quả hơn giữa các team.
+Tham gia sự kiện FCAJ Cloud Architect với tư cách khán giả là một trải nghiệm cực kỳ xứng đáng. Chương trình không chỉ là một giải đấu giải trí thuần túy mà là một buổi "giao lộ kiến thức" đầy giá trị. Tôi đã gặt hái được cả tư duy kỹ thuật lẫn góc nhìn thực tế về cách một Cloud Architect thực thụ vận hành, thiết kế và bảo vệ kiến trúc hệ thống của mình.

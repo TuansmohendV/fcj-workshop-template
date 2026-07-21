@@ -1,57 +1,42 @@
 ---
-title: "Week 8 Worklog"
-date: 2024-01-01
+title: "Worklog Week 8"
+date: 2026-06-02
 weight: 1
 chapter: false
 pre: " <b> 1.8. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
-
 
 ### Week 8 Objectives:
 
-* Connect and get acquainted with members of First Cloud AI Journey.
-* Understand basic AWS services, how to use the console & CLI.
+* Implement cloud data encryption mechanisms by provisioning customer-managed cryptographic assets.
+* Construct a secure Amazon S3 infrastructure utilizing server-side encryption with AWS KMS (SSE-KMS) and validate object upload integrity.
 
-### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCAJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
+### Tasks Implemented This Week:
 
+* **AWS Key Management Service (KMS):** Deploy a Customer Managed Symmetric Key with active administrative boundaries and automatic annual key rotation rules enabled.
+* **Amazon S3 Provisioning:** Remediate global naming conflicts to successfully initialize an isolated S3 bucket (`kms-key-s3-03072026`), customize object ownership profiles, and mitigate default public access constraints.
+* **Data Ingestion & Cryptographic Enforcement:** Execute an object upload workflow using a sample asset (`klasjfhs.jpg`), explicitly configuring storage tiers, validating data integrity using explicit checksum algorithms, and enforcing targeted SSE-KMS default overrides.
 
-### Week 8 Achievements:
+### Week 8 Results:
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+#### 1. Initialized and Configured AWS Key Management Service (KMS)
 
-* Successfully created and configured an AWS Free Tier account.
+* **Created Customer Managed Key:** Successfully executed the workflow to create a symmetric Customer Managed Key designed for cryptographic encryption and decryption operations, assigning it the alias `kms-key-encrypt-decrypt` (`image_f7d62b.png`, `image_f7dcee.png`).
+* **Defined Privileges:** Designated administrative permissions to `kms-key-role` and generated the corresponding IAM key policy (`image_f7d92a.png`, `image_f7da02.png`).
+* **Configured Key Rotation:** Enhanced the security posture of the cryptographic material by modifying the key rotation settings. Successfully enabled **Automatic Key Rotation** with a standard rotation frequency cycle of **365 days** (`image_f7dda7.png`, `image_f7e0ca.png`).
 
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
+#### 2. Resolved Naming Conflicts & Provisioned S3 Bucket (`kms-key-s3-03072026`)
 
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
+* **Error Remediation:** Encountered a standard `BucketAlreadyExists` conflict during global namespace checking (`image_f83ee3.png`). Resolved the error by appending a time-based unique suffix string (`03072026`).
+* **Successful Initialization:** Successfully created the general-purpose bucket named **`kms-key-s3-03072026`** within the `sa-east-1` region (`image_f8424c.png`, `image_f84346.png`).
+* **Security & Ingestion Settings:** Applied ACL write permissions, customized public visibility rules, and assigned default server-side encryption behaviors mapping to the unique customer-managed KMS key ARN.
 
-* Used AWS CLI to perform basic operations such as:
+#### 3. Secured Data Ingestion & Integrity Verification
 
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+* **Object Staging:** Initialized an upload workflow to store an asset named `klasjfhs.jpg` (14.9 KB) directly into the root level of the newly constructed bucket (`image_f84706.png`, `image_f84a8a.png`).
+* **Storage Class Assignment:** Allocated the object to the **Standard storage class** to ensure high-availability and frequent access performance profiles across multiple Availability Zones (`image_f84abf.png`).
+* **Explicit Encryption Override:** 
+  * Instructed the upload engine to enforce server-side encryption parameters by selecting **"Specify an encryption key"** and choosing to **"Override bucket settings for default encryption"** (`image_f84ac8.png`).
+  * Explicitly locked the target key to the newly deployed AWS KMS credential instance (ARN ending in `3609742e-1fff-452b-93b9-c0164008c405`) and kept the cost-saving **Bucket Key** optimization layer enabled (`image_f84ac8.png`, `image_f84d71.png`).
+* **Integrity Validation:** Configured the optional verification boundary by applying the **CRC64NVME** checksum function to automatically compute and validate object structural integrity during the transport lifecycle (`image_f84d71.png`).
+* **Execution Outcome:** Completed the operation with zero failures. The S3 console returned an explicit **"Upload succeeded"** state status confirmation message for the encrypted object (`image_f84d91.png`).

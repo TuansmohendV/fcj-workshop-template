@@ -1,59 +1,40 @@
 ---
 title: "Worklog Tuần 11"
-date: 2024-01-01
+date: 2026-01-07
 weight: 2
 chapter: false
 pre: " <b> 1.11. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
 
 
 ### Mục tiêu tuần 11:
-
-* Kết nối, làm quen với các thành viên trong First Cloud AI Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Khởi tạo cơ sở hạ tầng tầng lưu trữ trên Amazon S3 để làm Data Lake cho dự án.
+* Thiết lập cấu trúc thư mục chuẩn hóa để lưu trữ các tầng dữ liệu khác nhau.
+* Tải lên các dữ liệu cấu hình/meta ban đầu phục vụ cho các tiến trình xử lý dữ liệu tiếp theo.
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCAJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-
+*  Tạo một Amazon S3 bucket mới đóng vai trò là kho lưu trữ Data Lake tập trung.
+*  Xây dựng cấu trúc thư mục tiêu chuẩn (`data/` và `reference_data/`) bên trong bucket.
+*  Tải tệp định nghĩa schema/metadata ban đầu vào thư mục reference.
 
 ### Kết quả đạt được tuần 11:
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+#### 1. Khởi tạo Data Lake Bucket
+* **Tên Bucket:** `asg-datalake-tuan-2026`
+* **Khu vực (Region):** South America (Sử dụng cụm server São Paulo) `sa-east-1`
+* **Trạng thái:** Khởi tạo thành công với các thiết lập quyền truy cập riêng tư (private) tiêu chuẩn.
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
+#### 2. Thiết lập cấu trúc thư mục
+Hai thư mục logic chính đã được tạo bên trong bucket để phân tách rõ ràng các loại dữ liệu:
+* `data/`: Thư mục dành riêng cho các tập dữ liệu thô và dữ liệu vận hành được đẩy về.
+* `reference_data/`: Thư mục dành riêng cho các bảng tra cứu tĩnh, tệp cấu hình và siêu dữ liệu (metadata).
 
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
+#### 3. Thu thập và lưu trữ dữ liệu vào hệ thống
+* **Đường dẫn đích:** `s3://asg-datalake-tuan-2026/reference_data/`
+* **Tệp đã tải lên:** `tracks_list.json` (Dung lượng: 8.7 KB, Định dạng: `application/json`)
+* **Trạng thái tải lên:** Thành công 100%, không xảy ra lỗi.
 
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+### Đánh giá:
+*  Đã hoàn thành việc triển khai kiến trúc tầng lưu trữ dữ liệu trên Amazon S3.
+*  Kiểm tra tính toàn vẹn của luồng tải dữ liệu thành công thông qua tệp JSON ban đầu.
+*  Môi trường lưu trữ đã sẵn sàng để tích hợp với các bộ thu thập dữ liệu (data crawlers) và các dịch vụ phân tích ở các giai đoạn sau.

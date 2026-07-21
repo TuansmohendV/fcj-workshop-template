@@ -1,126 +1,79 @@
 ---
 title: "Event 2"
-date: 2024-01-01
+date: 2026-06-20
 weight: 1
 chapter: false
 pre: " <b> 4.2. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy it verbatim** into your report, including this warning.
-{{% /notice %}}
+# "FCAJ Cloud Architect" Event Summary
 
-# Summary Report: “GenAI-powered App-DB Modernization workshop”
+### Overview of the Participated Event
 
-### Event Objectives
+On June 20, 2026, I had the opportunity to attend the FCAJ Cloud Architect program as an audience member and a learning observer. This is a technology playground organized in a highly intense head-to-head competition model, focusing on challenging system design thinking, architectural requirements analysis, and infrastructure optimization on the Amazon Web Services (AWS) cloud computing platform.
 
-- Share best practices in modern application design
-- Introduce Domain-Driven Design (DDD) and event-driven architecture
-- Provide guidance on selecting the right compute services
-- Present AI tools to support the development lifecycle
+### General Information:
 
-### Speakers
+**Time:** 09:00, June 20, 2026
 
-- **Jignesh Shah** – Director, Open Source Databases
-- **Erica Liu** – Sr. GTM Specialist, AppMod
-- **Fabrianne Effendi** – Assc. Specialist SA, Serverless Amazon Web Services
+**Location:** 26th Floor, Bitexco Financial Tower, No. 02 Hai Trieu Street, Saigon Ward, Ho Chi Minh City
 
-### Key Highlights
+**Activity Name:** FCAJ Cloud Architect
 
-#### Identifying the drawbacks of legacy application architecture
+**Format:** Team-based competition, answering questions and handling scenarios regarding AWS Cloud Architecture
 
-- Long product release cycles → Lost revenue/missed opportunities  
-- Inefficient operations → Reduced productivity, higher costs  
-- Non-compliance with security regulations → Security breaches, loss of reputation  
+**Number of Participating Teams:** 8 teams
 
-#### Transitioning to modern application architecture – Microservices
+**Role:** Participant
 
-Migrating to a modular system — each function is an **independent service** communicating via **events**, built on three core pillars:
+**Main Content:** AWS Cloud Practitioner, Solution Architect Associate, cloud architecture, Solution Architect Professional, troubleshooting, and system optimization
 
-- **Queue Management**: Handle asynchronous tasks  
-- **Caching Strategy**: Optimize performance  
-- **Message Handling**: Flexible inter-service communication  
+### Tournament Progression
 
-#### Domain-Driven Design (DDD)
+As an eyewitness directly watching from the stands, I witnessed breathless score chases among the 8 competing teams: KTKAT, PrimeOps, Team newbie, Young Flame IT, Loser, Ngu dai hiep, Gap phai thang lieu, and Lifelong Learners.
 
-- **Four-step method**: Identify domain events → arrange timeline → identify actors → define bounded contexts  
-- **Bookstore case study**: Demonstrates real-world DDD application  
-- **Context mapping**: 7 patterns for integrating bounded contexts  
+### Serious and High-Pressure Competition Format
+The tournament applied a direct elimination format through rounds with increasing question difficulty, covering from foundational to advanced AWS certifications:
 
-#### Event-Driven Architecture
+Quarterfinals (Total score: 180): Consisted of 5 Cloud Practitioner questions (10 pts/question), 4 Solution Architect Associate questions (20 pts/question), and 1 Solution Architect Professional question (50 pts/question).
 
-- **3 integration patterns**: Publish/Subscribe, Point-to-point, Streaming  
-- **Benefits**: Loose coupling, scalability, resilience  
-- **Sync vs async comparison**: Understanding the trade-offs  
+Semifinals (Total score: 220): The difficulty was pushed higher by adding another expert-level question (2 SA Pro questions - 50 pts/question) and reducing foundational questions.
 
-#### Compute Evolution
+### Tournament Standings Update
+After the intense battles in the first round, the 4 most outstanding names emerged and delivered top-tier semifinal matches:
 
-- **Shared Responsibility Model**: EC2 → ECS → Fargate → Lambda  
-- **Serverless benefits**: No server management, auto-scaling, pay-for-value  
-- **Functions vs Containers**: Criteria for appropriate choice  
+Semifinal 1: The confrontation between KTKAT and Young Flame IT.
 
-#### Amazon Q Developer
+Semifinal 2: A well-balanced match between Ngu dai hiep and Lifelong Learners.
 
-- **SDLC automation**: From planning to maintenance  
-- **Code transformation**: Java upgrade, .NET modernization  
-- **AWS Transform agents**: VMware, Mainframe, .NET migration  
+The two winning teams from the semifinals will advance to the final match to find the strongest team of the FCAJ Cloud Architect activity.
 
-### Key Takeaways
+### Knowledge Gains from an Observer's Perspective
 
-#### Design Mindset
+Even though I did not directly stand on the stage to press the buzzer, sitting in the audience, thinking of the answers myself, and listening to the analysis from the competing teams as well as the judges helped broaden my mindset significantly.
 
-- **Business-first approach**: Always start from the business domain, not the technology  
-- **Ubiquitous language**: Importance of a shared vocabulary between business and tech teams  
-- **Bounded contexts**: Identifying and managing complexity in large systems  
+#### Systematizing AWS Knowledge from Basic to Advanced
 
-#### Technical Architecture
+**Foundational Level (Cloud Practitioner):** I got to review core definitions regarding the Shared Responsibility Model, how to distinguish basic storage and computing services like Amazon S3, EC2, RDS, or how to utilize CloudWatch for system monitoring.
 
-- **Event storming technique**: Practical method for modeling business processes  
-- Use **event-driven communication** instead of synchronous calls  
-- **Integration patterns**: When to use sync, async, pub/sub, streaming  
-- **Compute spectrum**: Criteria for choosing between VM, containers, and serverless  
+**Architect Level (SAA & SAP):** Through complex scenario-based questions, I gained a deeper understanding of designing secure networks with VPC (Public/Private Subnet, NAT Gateway, Security Group), distributing global content using CloudFront, or applying Amazon SQS to decouple components to help the system run asynchronously and increase load capacity.
 
-#### Modernization Strategy
+***Learning Real-World Troubleshooting Mindset***
 
-- **Phased approach**: No rushing — follow a clear roadmap  
-- **7Rs framework**: Multiple modernization paths depending on the application  
-- **ROI measurement**: Cost reduction + business agility  
+What I appreciated most while observing this tournament was how the teams analyzed system errors. When facing questions regarding "Network bottlenecks in infrastructure" or "Sudden cost spikes," I learned the process of elimination for causes: checking Route Tables first, reviewing Auto Scaling configurations, checking data transfer volume through NAT Gateways... These are all practical lessons that theoretical textbooks rarely describe in detail.
 
-### Applying to Work
+***Lessons on Teamwork Skills Under Pressure***
 
-- **Apply DDD** to current projects: Event storming sessions with business teams  
-- **Refactor microservices**: Use bounded contexts to define service boundaries  
-- **Implement event-driven patterns**: Replace some sync calls with async messaging  
-- **Adopt serverless**: Pilot AWS Lambda for suitable use cases  
-- **Try Amazon Q Developer**: Integrate into the dev workflow to boost productivity  
+Watching the teams discuss, I realized the importance of effective communication. In a short period, each member had to be in charge of an area of expertise (one good at Networking, another well-versed in Database/Security) and then quickly consult with each other to give a common answer. Unity and mutual trust were the keys that helped the teams advance deep into the inner rounds.
 
-### Event Experience
+***Direction for Personal Application***
 
-Attending the **“GenAI-powered App-DB Modernization”** workshop was extremely valuable, giving me a comprehensive view of modernizing applications and databases using advanced methods and tools. Key experiences included:
+This field trip at Bitexco has brought me a great source of motivation to develop my personal skills:
 
-#### Learning from highly skilled speakers
-- Experts from AWS and major tech organizations shared **best practices** in modern application design.  
-- Through real-world case studies, I gained a deeper understanding of applying **DDD** and **Event-Driven Architecture** to large projects.  
+In terms of learning: I realize I need to consolidate my knowledge in Security (IAM, Encryption) and Cloud Networking (VPC) more thoroughly. I will immediately apply this system module decomposition thinking into my upcoming major assignments and projects.
 
-#### Hands-on technical exposure
-- Participating in **event storming** sessions helped me visualize how to **model business processes** into domain events.  
-- Learned how to **split microservices** and define **bounded contexts** to manage large-system complexity.  
-- Understood trade-offs between **synchronous and asynchronous communication** and integration patterns like **pub/sub, point-to-point, streaming**.  
+In terms of career: Witnessing the importance of cloud computing in business operations helps me become more steadfast in my direction of diving deep into Cloud, DevOps, and Backend. I will plan to self-study to conquer AWS certifications in the near future to increase my competitive advantage when graduating.
 
-#### Leveraging modern tools
-- Explored **Amazon Q Developer**, an AI tool for SDLC support from planning to maintenance.  
-- Learned to **automate code transformation** and pilot serverless with **AWS Lambda** to improve productivity.  
+### Lessons Learned
 
-#### Networking and discussions
-- The workshop offered opportunities to exchange ideas with experts, peers, and business teams, enhancing the **ubiquitous language** between business and tech.  
-- Real-world examples reinforced the importance of the **business-first approach** rather than focusing solely on technology.  
-
-#### Lessons learned
-- Applying DDD and event-driven patterns reduces **coupling** while improving **scalability** and **resilience**.  
-- Modernization requires a **phased approach** with **ROI measurement**; rushing the process can be risky.  
-- AI tools like Amazon Q Developer can significantly **boost productivity** when integrated into the current workflow.  
-
-#### Some event photos
-*Add your event photos here*  
-
-> Overall, the event not only provided technical knowledge but also helped me reshape my thinking about application design, system modernization, and cross-team collaboration.
+Participating in the FCAJ Cloud Architect event as an audience member was an extremely worthwhile experience. The program is not merely a pure entertainment tournament but a valuable "intersection of knowledge." I have gathered both technical mindset and practical perspectives on how a true Cloud Architect operates, designs, and protects their system architecture.

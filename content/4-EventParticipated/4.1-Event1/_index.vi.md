@@ -1,125 +1,85 @@
 ---
 title: "Event 1"
-date: 2024-01-01
+date: 2026-30-05
 weight: 1
 chapter: false
 pre: " <b> 4.1. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
 
-# Bài thu hoạch “GenAI-powered App-DB Modernization workshop”
+# Bài thu hoạch “Mini meetup”
 
-### Mục Đích Của Sự Kiện
+### Tổng Quan Về Sự Kiện Đã Tham Gia
 
-- Chia sẻ best practices trong thiết kế ứng dụng hiện đại
-- Giới thiệu phương pháp DDD và event-driven architecture
-- Hướng dẫn lựa chọn compute services phù hợp
-- Giới thiệu công cụ AI hỗ trợ development lifecycle
+Vào ngày 30/05/2026 vừa qua, tôi đã có cơ hội tham dự chương trình Mini meetup với tư cách là một khán giả và người quan sát học hỏi. Đây là một chương trình được tổ chức nhằm để rèn sự mạnh dạng dám nghĩ dám làm , dám trình bày quan điểm cá nhân, dám phản biện , với chủ đề mà mình muốn chia sẻ nhằm hiểu nhau hơn và phát triển cùng nhau cùng với Amazon Web Services (AWS).
 
-### Danh Sách Diễn Giả
+**Thông tin chung:**
+* **Thời gian:** 09:00, ngày 30 tháng 05 năm 2026
+* **Địa điểm:** Tầng 26, tòa nhà Bitexco, số 02 đường Hải Triều, phường Sài Gòn, thành phố Hồ Chí Minh
+* **Tên hoạt động:** Mini meetup
+* **Hình thức:** chia sẻ quan điểm cá nhân và phản biện 
+* **Vai trò:** Người tham gia 
+* **Nội dung chính:** chủ đề do người chia sẻ tự chọn  , chia sẻ kiến thức đã học và thành quả của bản thân trong quá trình thực tập . 
 
-- **Jignesh Shah** - Director, Open Source Databases
-- **Erica Liu** - Sr. GTM Specialist, AppMod
-- **Fabrianne Effendi** - Assc. Specialist SA, Serverless Amazon Web Services
+### Công cụ mã nguồn mở Floci (Open-Source Floci)
 
-### Nội Dung Nổi Bật
+Floci là một trình giả lập môi trường AWS cục bộ (AWS Local Emulator) hoàn toàn miễn phí với thông điệp "Light, fluffy, and always free".
 
-#### Đưa ra các ảnh hưởng tiêu cực của kiến trúc ứng dụng cũ
+Lộ trình học tập thực tế: Diễn giả đã chia sẻ một lộ trình 3 giai đoạn rất rõ ràng dành cho người mới bắt đầu học Cloud:
 
-- Thời gian release sản phẩm lâu → Mất doanh thu/bỏ lỡ cơ hội
-- Hoạt động kém hiệu quả → Mất năng suất, tốn kém chi phí
-- Không tuân thủ các quy định về bảo mật → Mất an ninh, uy tín
+Giai đoạn 1 (Phase 1 - Mind & Architecture): Làm quen với tư duy kiến trúc thông qua nền tảng tương tác AWS Cloud Quest.
 
-#### Chuyển đổi sang kiến trúc ứng dụng mới - Microservice Architecture
+Giai đoạn 2 (Phase 2 - Code & Fast Testing): Viết mã nguồn và tiến hành kiểm thử nhanh chóng, an toàn bằng cách tận dụng Open-Source Floci ngay trên máy cục bộ mà không lo phát sinh chi phí.
 
-Chuyển đổi thành hệ thống modular – từng chức năng là một **dịch vụ độc lập** giao tiếp với nhau qua **sự kiện** với 3 trụ cột cốt lõi:
+Giai đoạn 3 (Phase 3 - Real Deployment & Production): Triển khai hệ thống thực tế lên môi trường Real AWS.
 
-- **Queue Management**: Xử lý tác vụ bất đồng bộ
-- **Caching Strategy:** Tối ưu performance
-- **Message Handling:** Giao tiếp linh hoạt giữa services
+**Bài học rút ra:** Việc biết đến Floci giúp tôi mở ra một tư duy mới trong việc tối ưu hóa quy trình kiểm thử phần mềm, cho phép thử nghiệm các tính năng Cloud một cách nhanh chóng mà không gặp áp lực về mặt ngân sách trên tài khoản AWS thật.
 
-#### Domain-Driven Design (DDD)
+### Dự án Hackathon: Hệ thống xác thực giọng nói AI - SynthHunter
 
-- **Phương pháp 4 bước**: Xác định domain events → sắp xếp timeline → identify actors → xác định bounded contexts
-- **Case study bookstore**: Minh họa cách áp dụng DDD thực tế
-- **Context mapping**: 7 patterns tích hợp bounded contexts
+công nghệ AI hiện nay có thể giả mạo giọng nói để vượt qua các lớp bảo mật truyền thống, tạo ra các rủi ro lớn về lừa đảo (fraud) và tuân thủ pháp lý.
 
-#### Event-Driven Architecture
+Giải pháp áp dụng: Nhóm tác giả đã mang đến giải pháp SynthHunter – một hệ thống phân loại âm thanh thông minh nhằm xác định xem các đoạn ghi âm là do con người nói (HUMAN), do trí tuệ nhân tạo tạo ra (AI GENERATED), hay cần phải xem xét thêm (NEEDS REVIEW).
 
-- **3 patterns tích hợp**: Publish/Subscribe, Point-to-point, Streaming
-- **Lợi ích**: Loose coupling, scalability, resilience
-- **So sánh sync vs async**: Hiểu rõ trade-offs (sự đánh đổi)
+Kiến trúc cốt lõi: Hệ thống vận hành dựa trên cơ chế phát hiện 3 trụ cột (Three-Pillar Detection Engine):
 
-#### Compute Evolution
+Speech Dynamics: Sử dụng mô hình XLS-R.
 
-- **Shared Responsibility Model**: Từ EC2 → ECS → Fargate → Lambda
-- **Serverless benefits**: No server management, auto-scaling, pay-for-value
-- **Functions vs Containers**: Criteria lựa chọn phù hợp
+Encoder Behavior: Sử dụng giải pháp Whisper.
 
-#### Amazon Q Developer
+Temporal Rhythm: Phân tích nhịp điệu và khoảng dừng khi nói (Pause Analysis).
 
-- **SDLC automation**: Từ planning đến maintenance
-- **Code transformation**: Java upgrade, .NET modernization
-- **AWS Transform agents**: VMware, Mainframe, .NET migration
+**Bài học rút ra:** Chủ đề này giúp tôi thấy được tính thực chiến cao của các giải pháp bảo mật ứng dụng AI, đồng thời hiểu thêm về cách kết hợp các mô hình phân tích âm thanh tiên tiến để giải quyết một lỗ hổng an ninh mạng nhức nhối hiện nay.
 
-### Những Gì Học Được
+### Kế hoạch dịch chuyển hạ tầng của dự án "Tử vi Đại Việt"
 
-#### Tư Duy Thiết Kế
+đây là một ứng dụng giải mã vận mệnh và thấu hiểu bản ngã đã có sản phẩm chạy thực tế (Website, Facebook, Instagram) và đang lên kế hoạch tối ưu hóa hệ thống bằng cách dịch chuyển hạ tầng lên nền tảng đám mây (Cloud Migration).
 
-- **Business-first approach**: Luôn bắt đầu từ business domain, không phải technology
-- **Ubiquitous language**: Importance của common vocabulary giữa business và tech teams
-- **Bounded contexts**: Cách identify và manage complexity trong large systems
+So sánh cấu trúc hạ tầng (Current Stack vs AWS infra migration):
 
-#### Kiến Trúc Kỹ Thuật
+Hạ tầng hiện tại: Hệ thống sử dụng mô hình truyền thống với Backend/Frontend chạy trên máy chủ ảo VPS (Nginx + PM2), lưu trữ dữ liệu bằng MySQL, gọi API của OpenAI (GPT-4.5) để xử lý logic thông minh và dùng Redis làm bộ nhớ đệm.
 
-- **Event storming technique**: Phương pháp thực tế để mô hình hóa quy trình kinh doanh
-- Sử dụng **Event-driven communication** thay vì synchronous calls
-- **Integration patterns**: Hiểu khi nào dùng sync, async, pub/sub, streaming
-- **Compute spectrum**: Criteria chọn từ VM → containers → serverless
+Hạ tầng mục tiêu dịch chuyển lên AWS: Dự án hướng tới cấu trúc bền vững hơn bằng cách chuyển sang chạy Backend/Frontend trên Amazon ECS và Amplify Hosting; đồng thời chuyển cơ sở dữ liệu sang Amazon RDS. Đặc biệt, phần xử lý AI sẽ được thay thế bằng Amazon Bedrock để tối ưu hóa việc tích hợp LLM, kết hợp dùng Amazon ElastiCache để tăng tốc độ truy xuất và CloudWatch/Lambda để vận hành các tác vụ ngầm.
 
-#### Chiến Lược Hiện Đại Hóa
+**Bài học rút ra:** Đây là một case study thực tế vô cùng giá trị đối với tôi. Nó giúp tôi hiểu rõ quy trình tư duy của một kỹ sư khi cần chuyển đổi một hệ thống từ máy chủ truyền thống sang môi trường AWS nhằm đạt được tính sẵn sàng cao, bảo mật và khả năng mở rộng lâu dài.
 
-- **Phased approach**: Không rush, phải có roadmap rõ ràng
-- **7Rs framework**: Nhiều con đường khác nhau tùy thuộc vào đặc điểm của mỗi ứng dụng
-- **ROI measurement**: Cost reduction + business agility
+### Không Khí Thảo Luận Và Hoạt Động Phản Biện
 
-### Ứng Dụng Vào Công Việc
+Bên cạnh nội dung chuyên môn phong phú, điểm làm nên sức hút của buổi Mini meetup chính là không gian tương tác mở và hoạt động phản biện trực tiếp sau mỗi bài chia sẻ:
 
-- **Áp dụng DDD** cho project hiện tại: Event storming sessions với business team
-- **Refactor microservices**: Sử dụng bounded contexts để identify service boundaries
-- **Implement event-driven patterns**: Thay thế một số sync calls bằng async messaging
-- **Serverless adoption**: Pilot AWS Lambda cho một số use cases phù hợp
-- **Try Amazon Q Developer**: Integrate vào development workflow để boost productivity
+Tinh thần dám nghĩ, dám nói: Các diễn giả thực tập sinh đã thể hiện tinh thần rất tự tin khi trình bày quan điểm cá nhân. Họ không chỉ nói về những thành công mà còn thẳng thắn chia sẻ những khó khăn, những lỗi sai thực tế gặp phải trong quá trình cấu hình và vận hành hệ thống.
 
-### Trải nghiệm trong event
+Phản biện văn minh và đa chiều: Các câu hỏi chất vấn từ phía khán giả và ban cố vấn đã giúp đẩy sâu tính chuyên môn của các chủ đề. Quá trình tranh luận này không chỉ giúp người thuyết trình tìm ra những điểm cần tối ưu trong kiến trúc của mình, mà còn giúp người tham gia quan sát như tôi rèn luyện được tư duy phân tích, nhìn nhận một vấn đề kỹ thuật dưới nhiều góc độ khác nhau.
 
-Tham gia workshop **“GenAI-powered App-DB Modernization”** là một trải nghiệm rất bổ ích, giúp tôi có cái nhìn toàn diện về cách hiện đại hóa ứng dụng và cơ sở dữ liệu bằng các phương pháp và công cụ hiện đại. Một số trải nghiệm nổi bật:
+### Những Thu Hoạch Và Định Hướng Cho Bản Thân
 
-#### Học hỏi từ các diễn giả có chuyên môn cao
-- Các diễn giả đến từ AWS và các tổ chức công nghệ lớn đã chia sẻ **best practices** trong thiết kế ứng dụng hiện đại.
-- Qua các case study thực tế, tôi hiểu rõ hơn cách áp dụng **Domain-Driven Design (DDD)** và **Event-Driven Architecture** vào các project lớn.
+Sau khi kết thúc buổi Mini meetup, tôi đã tích lũy được những bài học quý báu cho hành trình phát triển của bản thân:
 
-#### Trải nghiệm kỹ thuật thực tế
-- Tham gia các phiên trình bày về **event storming** giúp tôi hình dung cách **mô hình hóa quy trình kinh doanh** thành các domain events.
-- Học cách **phân tách microservices** và xác định **bounded contexts** để quản lý sự phức tạp của hệ thống lớn.
-- Hiểu rõ trade-offs giữa **synchronous và asynchronous communication** cũng như các pattern tích hợp như **pub/sub, point-to-point, streaming**.
+Về mặt kiến thức: Tôi hiểu được mối liên hệ chặt chẽ giữa việc giả lập môi trường phát triển (qua công cụ như Floci) trước khi tiến hành cấu hình hạ tầng thực tế trên hệ sinh thái Cloud của AWS (như ECS, RDS, Bedrock).
 
-#### Ứng dụng công cụ hiện đại
-- Trực tiếp tìm hiểu về **Amazon Q Developer**, công cụ AI hỗ trợ SDLC từ lập kế hoạch đến maintenance.
-- Học cách **tự động hóa code transformation** và pilot serverless với **AWS Lambda**, từ đó nâng cao năng suất phát triển.
+Về mặt kỹ năng mềm: Đúng như mục đích ban đầu của sự kiện, tôi nhận ra tầm quan trọng của việc dám bảo vệ quan điểm cá nhân và kỹ năng giao tiếp. Một kỹ sư công nghệ không chỉ cần giỏi chuyên môn, mà còn phải biết cách diễn đạt, thuyết trình giải pháp của mình sao cho mạch lạc và thuyết phục được người nghe.
 
-#### Kết nối và trao đổi
-- Workshop tạo cơ hội trao đổi trực tiếp với các chuyên gia, đồng nghiệp và team business, giúp **nâng cao ngôn ngữ chung (ubiquitous language)** giữa business và tech.
-- Qua các ví dụ thực tế, tôi nhận ra tầm quan trọng của **business-first approach**, luôn bắt đầu từ nhu cầu kinh doanh thay vì chỉ tập trung vào công nghệ.
+Định hướng ứng dụng: Những kiến thức về mô hình thiết kế mạng, kết nối cơ sở dữ liệu và chuyển đổi hạ tầng đám mây này sẽ được tôi nghiên cứu sâu hơn để áp dụng vào các dự án, bài tập lớn và đồ án công nghệ sắp tới tại trường học.
 
-#### Bài học rút ra
-- Việc áp dụng DDD và event-driven patterns giúp giảm **coupling**, tăng **scalability** và **resilience** cho hệ thống.
-- Chiến lược hiện đại hóa cần **phased approach** và đo lường **ROI**, không nên vội vàng chuyển đổi toàn bộ hệ thống.
-- Các công cụ AI như Amazon Q Developer có thể **boost productivity** nếu được tích hợp vào workflow phát triển hiện tại.
-
-#### Một số hình ảnh khi tham gia sự kiện
-* Thêm các hình ảnh của các bạn tại đây
-> Tổng thể, sự kiện không chỉ cung cấp kiến thức kỹ thuật mà còn giúp tôi thay đổi cách tư duy về thiết kế ứng dụng, hiện đại hóa hệ thống và phối hợp hiệu quả hơn giữa các team.
+## Bài Học Rút Ra 
+buổi Mini meetup diễn ra tại tầng 26 tòa nhà Bitexco là một chương trình vô cùng bổ ích và giàu giá trị thực tiễn. Trải nghiệm tham gia sự kiện giúp tôi mở rộng tầm mắt về cách ứng dụng linh hoạt các dịch vụ AWS vào các bài toán thực tế từ giả lập, bảo mật AI cho đến di trú hạ tầng. Quan trọng hơn hết, tinh thần dám nghĩ, dám làm và phản biện văn minh từ buổi chia sẻ đã truyền cho tôi nguồn cảm hứng lớn để tiếp tục nỗ lực học hỏi, tự tin khẳng định bản thân trên con đường định hướng trở thành một kỹ sư công nghệ trong tương lai.

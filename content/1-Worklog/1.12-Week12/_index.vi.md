@@ -1,58 +1,40 @@
 ---
 title: "Worklog Tuần 12"
-date: 2024-01-01
+date: 2026-05-07
 weight: 2
 chapter: false
 pre: " <b> 1.12 </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
-
-### Mục tiêu tuần 12:
-
-* Kết nối, làm quen với các thành viên trong First Cloud AI Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
-
-### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCAJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
 
 
-### Kết quả đạt được tuần 12:
+### Mục tiêu Tuần 12:
+* Triển khai kiến trúc serverless hướng sự kiện (event-driven) sử dụng AWS Lambda để xử lý tự động hóa quy trình xử lý hình ảnh.
+* Sử dụng môi trường AWS Cloud9 IDE để phát triển, đóng gói và triển khai mã nguồn serverless.
+* Cấu hình tính năng S3 Event Notifications để tự động kích hoạt hàm Lambda ngay khi có hình ảnh mới được tải lên.
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+### Các tác vụ triển khai trong tuần:
+*  Khởi tạo môi trường làm việc AWS Cloud9 để phục vụ phát triển ứng dụng serverless.
+*  Tạo hàm AWS Lambda (`CreateThumbnail`) với môi trường thực thi Node.js.
+*  Thiết lập bộ kích hoạt (trigger) Amazon S3 Bucket Event Notification để bắt các sự kiện `ObjectCreated`.
+* Kiểm thử, tìm và khắc phục lỗi cú pháp module (`Runtime.UserCodeSyntaxError`) trong quá trình chạy thử nghiệm tích hợp cục bộ.
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
+### Kết quả đạt được trong Tuần 12:
 
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
+#### 1. Khởi tạo hàm Serverless Lambda
+* **Tên hàm (Function Name):** `CreateThumbnail`
+* **Môi trường thực thi (Runtime):** Node.js 18.x (Kiến trúc: `x86_64`)
+* **Phương thức triển khai:** Được lập trình, đóng gói và đẩy lên trực tiếp thông qua môi trường làm việc AWS Cloud9.
 
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
+#### 2. Kiểm sửa lỗi và Giải pháp kỹ thuật
+* **Lỗi gặp phải:** Trong quá trình chạy thử nghiệm ban đầu, hàm Lambda đã trả về thông báo lỗi `Runtime.UserCodeSyntaxError: Cannot use import statement outside a module`. Lỗi này xảy ra do mã nguồn sử dụng cú pháp ES Module (`import`) trong khi Node.js mặc định chạy theo quy tắc CommonJS.
+* **Giải pháp thực hiện:** Sửa đổi thành công file cấu hình `package.json` bên trong không gian làm việc Cloud9 bằng cách thêm thuộc tính `"type": "module"`. Sau đó tiến hành đóng gói lại mã nguồn và triển khai lại gói ứng dụng lên Lambda qua dòng lệnh terminal.
 
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
+#### 3. Cấu hình sự kiện kích hoạt S3 (S3 Trigger)
+* **Bucket nguồn:** `asg-datalake-tuan-2026`
+* **Loại sự kiện:** `All object create events` (`s3:ObjectCreated:*`)
+* **Cơ chế hoạt động:** Đã xác minh kết nối tự động thành công; bất kỳ hình ảnh nào được tải lên thư mục nguồn hiện tại đều kích hoạt luồng xử lý tạo ảnh thu nhỏ (thumbnail) của Lambda một cách mượt mà.
 
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+### Đánh giá kết quả:
+*  Hoàn thành 100% việc thiết lập đường ống (pipeline) tự động xử lý hình ảnh bằng AWS Cloud9 và Lambda.
+* Khắc phục thành công lỗi biên dịch module khi thực thi, đảm bảo khả năng tương thích và chạy ổn định của cú pháp ES Module.
+* Hệ thống hoạt động an toàn, phản hồi các sự kiện từ S3 theo thời gian thực một cách hiệu quả và không tốn chi phí quản lý hạ tầng.

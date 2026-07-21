@@ -1,59 +1,38 @@
 ---
 title: "Worklog Tuần 2"
-date: 2024-01-01
+date: 2026-05-22
 weight: 1
 chapter: false
 pre: " <b> 1.2. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
-
 
 ### Mục tiêu tuần 2:
 
-* Kết nối, làm quen với các thành viên trong First Cloud AI Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+- **Tìm hiểu các dịch vụ AWS sử dụng trong bài thực hành:**
 
-### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCAJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+    - **Amazon VPC (Virtual Private Cloud):** Tạo môi trường mạng ảo riêng biệt để triển khai các tài nguyên AWS.
+    - **Amazon EC2 (Elastic Compute Cloud):** Cung cấp máy chủ ảo để chạy ứng dụng FCJ Management.
+    - **Amazon RDS (Relational Database Service):** Dịch vụ cơ sở dữ liệu quan hệ được quản lý để lưu trữ dữ liệu ứng dụng.
+    - **Amazon EC2 Auto Scaling:** Tự động điều chỉnh số lượng EC2 instances dựa trên nhu cầu thực tế.
+    - **Elastic Load Balancing (ELB):** Phân phối lưu lượng truy cập đến giữa nhiều EC2 instances.
+    - **Amazon CloudWatch:** Giám sát tài nguyên và ứng dụng AWS, thu thập và theo dõi các metrics.
+    - **AWS Systems Manager:** Quản lý cấu hình và tự động hóa các tác vụ trên EC2 instances.
 
+### Các công việc cần thực hiện trong tuần:
+
+- Nghiên cứu tài liệu chính thức (AWS Documentation) về các dịch vụ hạ tầng cốt lõi: VPC, EC2, RDS.
+- Đọc hiểu cơ chế hoạt động của Elastic Load Balancing và Auto Scaling để chuẩn bị cho việc tối ưu hiệu năng hệ thống sau này.
+- Tìm hiểu lý thuyết về cách giám sát và quản lý tài nguyên từ xa thông qua CloudWatch và Systems Manager.
 
 ### Kết quả đạt được tuần 2:
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+- **Hoàn thành nghiên cứu lý thuyết nền tảng về hạ tầng mạng và máy chủ AWS:**
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
+    - Nắm vững khái niệm về **Amazon VPC**, hiểu cách phân chia Public/Private Subnet và vai trò điều hướng lưu lượng của Internet Gateway, NAT Gateway.
+    - Hiểu rõ cơ chế khởi tạo và quản lý máy chủ ảo **Amazon EC2** để chuẩn bị cho các bước triển khai ứng dụng thực tế.
+    - Tiếp thu kiến thức về mô hình cơ sở dữ liệu được quản lý **Amazon RDS** và các tùy chọn lưu trữ dữ liệu an toàn.
 
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
+- **Tiếp cận lý thuyết về kiến trúc mở rộng và giám sát hệ thống:**
 
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+    - Đọc hiểu nguyên lý phối hợp giữa **ELB** và **EC2 Auto Scaling** trong việc tự động cân bằng tải và đảm bảo tính sẵn sàng cao (High Availability) cho hệ thống.
+    - Nắm được lý thuyết về cách dùng **Amazon CloudWatch** để theo dõi chỉ số tài nguyên và cách **AWS Systems Manager** hỗ trợ quản lý cấu hình tập trung.

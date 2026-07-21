@@ -1,59 +1,27 @@
 ---
 title: "Worklog Tuần 4"
-date: 2024-01-01
+date: 2026-06-05
 weight: 1
 chapter: false
 pre: " <b> 1.4. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
-
 
 ### Mục tiêu tuần 4:
 
-* Kết nối, làm quen với các thành viên trong First Cloud AI Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+- Tìm hiểu cách sử dụng dịch vụ **AWS Billing and Cost Management** nhằm theo dõi, giám sát và kiểm soát chi phí sử dụng đám mây AWS một cách hiệu quả.
+- Nắm vững quy trình thiết lập nâng cao các ngưỡng chi phí và hệ thống cảnh báo qua email tự động để đảm bảo tuân thủ ngân sách.
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCAJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
 
+- Truy cập vào AWS Management Console và cấu hình ngân sách tùy chỉnh bằng tùy chọn thiết lập nâng cao Customize (advanced).
+- Định nghĩa một ngưỡng ngân sách cố định lặp lại hàng tháng (Monthly recurring fixed budget) là $100.00 áp dụng cho tất cả các dịch vụ AWS.
+- Cấu hình tiêu chí cảnh báo tự động để kích hoạt và gửi email thông báo đến địa chỉ chỉ định (`tuanthanhmai708@gmail.com`) khi chi phí thực tế chạm mức 80% số tiền ngân sách đã đặt.
+- Kiểm tra lại toàn bộ cấu hình và hoàn tất quy trình để kích hoạt tính năng giám sát chi phí chủ động.
 
 ### Kết quả đạt được tuần 4:
+- **Thực hành thành công và áp dụng các cấu hình quản lý chi phí nâng cao trên AWS:**
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+    - Gặt hái được kinh nghiệm thực tế trong việc thiết lập các ngân sách chi phí tùy chỉnh với các tham số chi tiết, thay vì chỉ phụ thuộc hoàn toàn vào các mẫu (templates) cơ bản.
+    - Khởi tạo và triển khai thành công một ngân sách chi phí mới có tên là `Monthly` với hạn mức $100.00, bổ sung vào danh sách theo dõi chủ động bên cạnh các ngân sách đã có sẵn.
+    - Cấu hình chạy tốt bộ kích hoạt ngưỡng (threshold trigger) ở mức 80% chi phí thực tế kết hợp đồng bộ trực tiếp với tùy chọn nhận thông báo qua email.
+    - Tất cả các cấu hình đều được xác thực thành công và hiển thị trạng thái ổn định "Healthy" trên bảng điều khiển tổng quan Budgets, đảm bảo thiết lập hàng rào tài chính chủ động cho các tài nguyên đám mây.

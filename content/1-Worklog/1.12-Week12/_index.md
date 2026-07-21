@@ -1,57 +1,41 @@
 ---
 title: "Week 12 Worklog"
-date: 2024-01-01
+date: 2026-07-17
 weight: 2
 chapter: false
 pre: " <b> 1.12. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
 
 
 ### Week 12 Objectives:
+* Implement an event-driven serverless architecture using AWS Lambda to handle automated image processing.
+* Utilize AWS Cloud9 IDE to develop, package, and deploy the serverless source code.
+* Configure S3 Event Notifications to automatically trigger the Lambda function upon new image uploads.
 
-* Connect and get acquainted with members of First Cloud AI Journey.
-* Understand basic AWS services, how to use the console & CLI.
+### Tasks to Implement This Week:
+*  Initialize an AWS Cloud9 environment for serverless development.
+*  Create an AWS Lambda function (`CreateThumbnail`) with a Node.js runtime environment.
+*  Set up an Amazon S3 Bucket Event Notification trigger to capture `ObjectCreated` events.
+*  Troubleshoot and resolve the module syntax error (`Runtime.UserCodeSyntaxError`) during local integration testing.
 
-### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCAJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
+### Achievements in Week 12:
 
+#### 1. Serverless Lambda Function Initialization
+* **Function Name:** `CreateThumbnail`
+* **Runtime:** Node.js 18.x (Architecture: `x86_64`)
+* **Deployment Method:** Developed and packaged via AWS Cloud9 workspace environment.
 
-### Week 12 Achievements:
+#### 2. Troubleshooting & Technical Resolutions
+* **Issue Encountered:** During initial execution testing, the Lambda function threw a `Runtime.UserCodeSyntaxError: Cannot use import statement outside a module`. This occurred because the script used ES Module syntax (`import`) while Node.js defaulted to CommonJS execution rules.
+* **Resolution Implemented:** Successfully modified the `package.json` configuration file inside the Cloud9 workspace by adding the `"type": "module"` property. Re-packaged and deployed the function deployment package via the command line.
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+#### 3. S3 Trigger Event Configuration
+* **Source Bucket:** `asg-datalake-tuan-2026`
+* **Event Type:** `All object create events` (`s3:ObjectCreated:*`)
+* **Mechanism:** Verified the automation hook; any image uploaded to the source directory now triggers the Lambda thumbnail execution flow seamlessly.
 
-* Successfully created and configured an AWS Free Tier account.
+### Evaluation:
+*  100% completed establishing the automated image processing pipeline using AWS Cloud9 and Lambda.
+*  Successfully resolved the runtime module compilation error, ensuring robust ES Module execution compatibility.
+*  The system is operating securely, responding to real-time S3 events with zero infrastructure management overhead.
 
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
-
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
-
-* Used AWS CLI to perform basic operations such as:
-
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
