@@ -1,6 +1,6 @@
 ---
 title: "Blog 3"
-date: 2026-15-07
+date: 2026-07-15
 weight: 1
 chapter: false
 pre: " <b> 3.3. </b> "
@@ -27,7 +27,7 @@ Bài viết này chia sẻ một pipeline xử lý ảnh theo hướng serverles
 
 Pattern S3 → Lambda → DynamoDB/SNS → API Gateway phù hợp cho các bài toán xử lý file bất đồng bộ, khả năng tự scale tốt. Điểm khó không nằm ở việc nhớ tên dịch vụ, mà là hiểu đúng "ai gọi ai" để tránh vòng lặp vô hạn và chi phí phát sinh không đáng có.
 
-![Serverless Image Processing Pipeline](/images/3-BlogsPosted/3.3-Blog3/ServerlessImagePipeline.jpg)
+![Serverless Image Processing Pipeline](/static/images/3-BlogsPosted/3.3-Blog3/ServerlessImagePipeline.jpg)
 
 Tài liệu tham khảo cho bạn đọc muốn tìm hiểu sâu hơn:
 

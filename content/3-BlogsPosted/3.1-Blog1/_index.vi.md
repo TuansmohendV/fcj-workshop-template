@@ -21,7 +21,7 @@ Tại AWS re:Invent 2025, AWS đã giới thiệu một tính năng mới nhằm
 
 Đây là tính năng cho phép một execution của Lambda tự động "checkpoint" tiến trình và tạm dừng (wait) mà không phát sinh chi phí compute, sau đó tự động resume đúng tại vị trí đã dừng khi nhận được tín hiệu. Thời gian sống của một Execution hiện có thể kéo dài tới 1 năm, trong khi giới hạn của mỗi lần Invoke đơn lẻ vẫn giữ nguyên ở mức 15 phút. Khi function bị tạm dừng hoặc gặp lỗi, Lambda sẽ gọi lại hàm từ đầu, nhưng sẽ replay các bước đã hoàn thành dựa trên kết quả đã lưu trong log, và chỉ thực thi tiếp phần việc chưa hoàn tất.
 
-![AWS Lambda Durable Functions](/images/3-BlogsPosted/3.1-Blog1/AWSLambdaDurableFunctions.drawio.png)
+![AWS Lambda Durable Functions](/static/images/3-BlogsPosted/3.1-Blog1/AWSLambdaDurableFunctions.drawio.png)
 
 [Link bài viết gốc](https://www.facebook.com/groups/awsstudygroupfcj/permalink/2206391430125817/?rdid=ygFv7ftHySKZbKkF#)
 

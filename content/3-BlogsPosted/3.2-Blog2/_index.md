@@ -21,7 +21,7 @@ Below are the most noteworthy AWS Lambda cost optimization strategies, summarize
 
 The AWS Lambda Power Tuning results below clearly illustrate the balance point between cost and execution time: Best Cost at 512MB, Best Time at 2048MB, with Graviton consistently cheaper than x86:
 
-![AWS Lambda Power Tuning Results](/images/3-BlogsPosted/3.2-Blog2/LambdaPowerTuningResults.jpg)
+![AWS Lambda Power Tuning Results](/static/images/3-BlogsPosted/3.2-Blog2/LambdaPowerTuningResults.jpg)
 
 Full article for readers who want to dive deeper: [Reducing AWS Lambda Costs — Optimization Tips for Serverless Computing](https://www.cloudkeeper.com/insights/blog/reducing-aws-lambda-costs-optimization-tips-serverless-computing#toc-using-aws-graviton2)
 
