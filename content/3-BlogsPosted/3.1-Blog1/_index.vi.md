@@ -1,14 +1,10 @@
 ---
 title: "Blog 1"
-date: 2026-07-07
+date: 2024-01-01
 weight: 1
 chapter: false
 pre: " <b> 3.1. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
-
 # AWS LAMBDA DURABLE FUNCTIONS
 
 Kiến trúc Serverless trên AWS Lambda tồn tại một hạn chế đã được biết đến rộng rãi: tính chất stateless. Mỗi lần Invoke là một vòng đời thực thi độc lập, giới hạn tối đa 15 phút; nếu hàm gặp lỗi giữa chừng, toàn bộ tiến trình sẽ bị mất và phải chạy lại từ đầu.

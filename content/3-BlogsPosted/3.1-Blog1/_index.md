@@ -1,14 +1,10 @@
 ---
 title: "Blog 1"
-date: 2026-07-07
+date: 2024-01-01
 weight: 1
 chapter: false
 pre: " <b> 3.1. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
-{{% /notice %}}
-
 # AWS LAMBDA DURABLE FUNCTIONS
 
 AWS Lambda's Serverless architecture has a well-known limitation: statelessness. Each Invoke is an independent execution lifecycle, capped at 15 minutes; if the function fails partway through, the entire process is lost and must be restarted from the beginning.
@@ -26,4 +22,3 @@ This feature allows a Lambda execution to automatically checkpoint its progress 
 [Link to the original post](https://www.facebook.com/groups/awsstudygroupfcj/permalink/2206391430125817/?rdid=ygFv7ftHySKZbKkF#)
 
 ...Guide...
-
